@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3CBAFD174C7DD50012A9FF /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAF7174C7DD50012A9FF /* 07-map-marker.png */; };
+		1A3CBAFE174C7DD50012A9FF /* 07-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAF8174C7DD50012A9FF /* 07-map-marker@2x.png */; };
+		1A3CBAFF174C7DD50012A9FF /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAF9174C7DD50012A9FF /* 83-calendar.png */; };
+		1A3CBB00174C7DD50012A9FF /* 83-calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAFA174C7DD50012A9FF /* 83-calendar@2x.png */; };
+		1A3CBB01174C7DD50012A9FF /* 103-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAFB174C7DD50012A9FF /* 103-map.png */; };
+		1A3CBB02174C7DD50012A9FF /* 103-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAFC174C7DD50012A9FF /* 103-map@2x.png */; };
 		D42E5571174BCEC70070A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E5570174BCEC70070A864 /* UIKit.framework */; };
 		D42E5573174BCEC70070A864 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E5572174BCEC70070A864 /* Foundation.framework */; };
 		D42E5575174BCEC70070A864 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E5574174BCEC70070A864 /* CoreGraphics.framework */; };
@@ -19,11 +25,7 @@
 		D42E558A174BCEC70070A864 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42E5588174BCEC70070A864 /* MainStoryboard_iPhone.storyboard */; };
 		D42E558D174BCEC70070A864 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42E558B174BCEC70070A864 /* MainStoryboard_iPad.storyboard */; };
 		D42E5590174BCEC70070A864 /* ZNFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42E558F174BCEC70070A864 /* ZNFirstViewController.m */; };
-		D42E5592174BCEC70070A864 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = D42E5591174BCEC70070A864 /* first.png */; };
-		D42E5594174BCEC70070A864 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D42E5593174BCEC70070A864 /* first@2x.png */; };
 		D42E5597174BCEC70070A864 /* ZNSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42E5596174BCEC70070A864 /* ZNSecondViewController.m */; };
-		D42E5599174BCEC70070A864 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = D42E5598174BCEC70070A864 /* second.png */; };
-		D42E559B174BCEC70070A864 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D42E559A174BCEC70070A864 /* second@2x.png */; };
 		D42E55A3174BCEC70070A864 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E55A2174BCEC70070A864 /* SenTestingKit.framework */; };
 		D42E55A4174BCEC70070A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E5570174BCEC70070A864 /* UIKit.framework */; };
 		D42E55A5174BCEC70070A864 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E5572174BCEC70070A864 /* Foundation.framework */; };
@@ -46,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A3CBAF7174C7DD50012A9FF /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "07-map-marker.png"; path = "Resources/07-map-marker.png"; sourceTree = "<group>"; };
+		1A3CBAF8174C7DD50012A9FF /* 07-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "07-map-marker@2x.png"; path = "Resources/07-map-marker@2x.png"; sourceTree = "<group>"; };
+		1A3CBAF9174C7DD50012A9FF /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "83-calendar.png"; path = "Resources/83-calendar.png"; sourceTree = "<group>"; };
+		1A3CBAFA174C7DD50012A9FF /* 83-calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "83-calendar@2x.png"; path = "Resources/83-calendar@2x.png"; sourceTree = "<group>"; };
+		1A3CBAFB174C7DD50012A9FF /* 103-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-map.png"; path = "Resources/103-map.png"; sourceTree = "<group>"; };
+		1A3CBAFC174C7DD50012A9FF /* 103-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "103-map@2x.png"; path = "Resources/103-map@2x.png"; sourceTree = "<group>"; };
 		D42E556D174BCEC70070A864 /* ZheNar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZheNar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42E5570174BCEC70070A864 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D42E5572174BCEC70070A864 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,12 +71,8 @@
 		D42E558C174BCEC70070A864 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		D42E558E174BCEC70070A864 /* ZNFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNFirstViewController.h; sourceTree = "<group>"; };
 		D42E558F174BCEC70070A864 /* ZNFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNFirstViewController.m; sourceTree = "<group>"; };
-		D42E5591174BCEC70070A864 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		D42E5593174BCEC70070A864 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		D42E5595174BCEC70070A864 /* ZNSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNSecondViewController.h; sourceTree = "<group>"; };
 		D42E5596174BCEC70070A864 /* ZNSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNSecondViewController.m; sourceTree = "<group>"; };
-		D42E5598174BCEC70070A864 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		D42E559A174BCEC70070A864 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		D42E55A1174BCEC70070A864 /* ZheNarTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZheNarTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42E55A2174BCEC70070A864 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		D42E55AA174BCEC70070A864 /* ZheNarTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZheNarTests-Info.plist"; sourceTree = "<group>"; };
@@ -109,6 +113,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A3CBB03174C7DD90012A9FF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A3CBAF7174C7DD50012A9FF /* 07-map-marker.png */,
+				1A3CBAF8174C7DD50012A9FF /* 07-map-marker@2x.png */,
+				1A3CBAF9174C7DD50012A9FF /* 83-calendar.png */,
+				1A3CBAFA174C7DD50012A9FF /* 83-calendar@2x.png */,
+				1A3CBAFB174C7DD50012A9FF /* 103-map.png */,
+				1A3CBAFC174C7DD50012A9FF /* 103-map@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		D42E5564174BCEC70070A864 = {
 			isa = PBXGroup;
 			children = (
@@ -156,12 +173,9 @@
 				D42E558B174BCEC70070A864 /* MainStoryboard_iPad.storyboard */,
 				D42E558E174BCEC70070A864 /* ZNFirstViewController.h */,
 				D42E558F174BCEC70070A864 /* ZNFirstViewController.m */,
-				D42E5591174BCEC70070A864 /* first.png */,
-				D42E5593174BCEC70070A864 /* first@2x.png */,
 				D42E5595174BCEC70070A864 /* ZNSecondViewController.h */,
 				D42E5596174BCEC70070A864 /* ZNSecondViewController.m */,
-				D42E5598174BCEC70070A864 /* second.png */,
-				D42E559A174BCEC70070A864 /* second@2x.png */,
+				1A3CBB03174C7DD90012A9FF /* Resources */,
 				D42E5577174BCEC70070A864 /* Supporting Files */,
 			);
 			path = ZheNar;
@@ -278,10 +292,12 @@
 				D42E5587174BCEC70070A864 /* Default-568h@2x.png in Resources */,
 				D42E558A174BCEC70070A864 /* MainStoryboard_iPhone.storyboard in Resources */,
 				D42E558D174BCEC70070A864 /* MainStoryboard_iPad.storyboard in Resources */,
-				D42E5592174BCEC70070A864 /* first.png in Resources */,
-				D42E5594174BCEC70070A864 /* first@2x.png in Resources */,
-				D42E5599174BCEC70070A864 /* second.png in Resources */,
-				D42E559B174BCEC70070A864 /* second@2x.png in Resources */,
+				1A3CBAFD174C7DD50012A9FF /* 07-map-marker.png in Resources */,
+				1A3CBAFE174C7DD50012A9FF /* 07-map-marker@2x.png in Resources */,
+				1A3CBAFF174C7DD50012A9FF /* 83-calendar.png in Resources */,
+				1A3CBB00174C7DD50012A9FF /* 83-calendar@2x.png in Resources */,
+				1A3CBB01174C7DD50012A9FF /* 103-map.png in Resources */,
+				1A3CBB02174C7DD50012A9FF /* 103-map@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
