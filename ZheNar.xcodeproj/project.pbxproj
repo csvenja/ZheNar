@@ -129,10 +129,46 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		D42D5F37174E36EA00887CFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D42E557F174BCEC70070A864 /* ZNAppDelegate.h */,
+				D42E5580174BCEC70070A864 /* ZNAppDelegate.m */,
+				D476F678174DF5C0000A3ADD /* ZNPlace.h */,
+				D476F679174DF5C0000A3ADD /* ZNPlace.m */,
+				D476F67E174E06D7000A3ADD /* ZNPlaceType.h */,
+				D476F67F174E06D7000A3ADD /* ZNPlaceType.m */,
+				D476F67B174DFB4F000A3ADD /* ZNEvent.h */,
+				D476F67C174DFB4F000A3ADD /* ZNEvent.m */,
+				D476F681174E0828000A3ADD /* ZNEventType.h */,
+				D476F682174E0828000A3ADD /* ZNEventType.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D42D5F38174E370200887CFA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D42E558E174BCEC70070A864 /* ZNFirstViewController.h */,
+				D42E558F174BCEC70070A864 /* ZNFirstViewController.m */,
+				D42E5595174BCEC70070A864 /* ZNSecondViewController.h */,
+				D42E5596174BCEC70070A864 /* ZNSecondViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D42D5F39174E374300887CFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D42E558B174BCEC70070A864 /* MainStoryboard_iPad.storyboard */,
+				D42E5588174BCEC70070A864 /* MainStoryboard_iPhone.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D42E5564174BCEC70070A864 = {
 			isa = PBXGroup;
 			children = (
-				D476F684174E30E6000A3ADD /* MapKit.framework */,
 				D42E5576174BCEC70070A864 /* ZheNar */,
 				D42E55A8174BCEC70070A864 /* ZheNarTests */,
 				D42E556F174BCEC70070A864 /* Frameworks */,
@@ -152,6 +188,7 @@
 		D42E556F174BCEC70070A864 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D476F684174E30E6000A3ADD /* MapKit.framework */,
 				D42E5570174BCEC70070A864 /* UIKit.framework */,
 				D42E5572174BCEC70070A864 /* Foundation.framework */,
 				D42E5574174BCEC70070A864 /* CoreGraphics.framework */,
@@ -163,22 +200,9 @@
 		D42E5576174BCEC70070A864 /* ZheNar */ = {
 			isa = PBXGroup;
 			children = (
-				D42E557F174BCEC70070A864 /* ZNAppDelegate.h */,
-				D42E5580174BCEC70070A864 /* ZNAppDelegate.m */,
-				D476F678174DF5C0000A3ADD /* ZNPlace.h */,
-				D476F67E174E06D7000A3ADD /* ZNPlaceType.h */,
-				D476F67F174E06D7000A3ADD /* ZNPlaceType.m */,
-				D476F67B174DFB4F000A3ADD /* ZNEvent.h */,
-				D476F681174E0828000A3ADD /* ZNEventType.h */,
-				D476F682174E0828000A3ADD /* ZNEventType.m */,
-				D476F67C174DFB4F000A3ADD /* ZNEvent.m */,
-				D476F679174DF5C0000A3ADD /* ZNPlace.m */,
-				D42E5588174BCEC70070A864 /* MainStoryboard_iPhone.storyboard */,
-				D42E558B174BCEC70070A864 /* MainStoryboard_iPad.storyboard */,
-				D42E558E174BCEC70070A864 /* ZNFirstViewController.h */,
-				D42E558F174BCEC70070A864 /* ZNFirstViewController.m */,
-				D42E5595174BCEC70070A864 /* ZNSecondViewController.h */,
-				D42E5596174BCEC70070A864 /* ZNSecondViewController.m */,
+				D42D5F39174E374300887CFA /* View */,
+				D42D5F38174E370200887CFA /* Controller */,
+				D42D5F37174E36EA00887CFA /* Model */,
 				1A3CBB03174C7DD90012A9FF /* Resources */,
 				D42E5577174BCEC70070A864 /* Supporting Files */,
 			);
