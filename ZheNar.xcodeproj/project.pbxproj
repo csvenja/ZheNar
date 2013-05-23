@@ -29,6 +29,10 @@
 		D42E55A5174BCEC70070A864 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E5572174BCEC70070A864 /* Foundation.framework */; };
 		D42E55AD174BCEC70070A864 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D42E55AB174BCEC70070A864 /* InfoPlist.strings */; };
 		D42E55B0174BCEC70070A864 /* ZheNarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D42E55AF174BCEC70070A864 /* ZheNarTests.m */; };
+		D476F67A174DF5C0000A3ADD /* ZNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F679174DF5C0000A3ADD /* ZNPlace.m */; };
+		D476F67D174DFB4F000A3ADD /* ZNEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67C174DFB4F000A3ADD /* ZNEvent.m */; };
+		D476F680174E06D7000A3ADD /* ZNPlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67F174E06D7000A3ADD /* ZNPlaceType.m */; };
+		D476F683174E0828000A3ADD /* ZNEventType.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F682174E0828000A3ADD /* ZNEventType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,14 @@
 		D42E55AC174BCEC70070A864 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D42E55AE174BCEC70070A864 /* ZheNarTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZheNarTests.h; sourceTree = "<group>"; };
 		D42E55AF174BCEC70070A864 /* ZheNarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZheNarTests.m; sourceTree = "<group>"; };
+		D476F678174DF5C0000A3ADD /* ZNPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNPlace.h; sourceTree = "<group>"; };
+		D476F679174DF5C0000A3ADD /* ZNPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNPlace.m; sourceTree = "<group>"; };
+		D476F67B174DFB4F000A3ADD /* ZNEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEvent.h; sourceTree = "<group>"; };
+		D476F67C174DFB4F000A3ADD /* ZNEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNEvent.m; sourceTree = "<group>"; };
+		D476F67E174E06D7000A3ADD /* ZNPlaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNPlaceType.h; sourceTree = "<group>"; };
+		D476F67F174E06D7000A3ADD /* ZNPlaceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNPlaceType.m; sourceTree = "<group>"; };
+		D476F681174E0828000A3ADD /* ZNEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEventType.h; sourceTree = "<group>"; };
+		D476F682174E0828000A3ADD /* ZNEventType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNEventType.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +144,14 @@
 			children = (
 				D42E557F174BCEC70070A864 /* ZNAppDelegate.h */,
 				D42E5580174BCEC70070A864 /* ZNAppDelegate.m */,
+				D476F678174DF5C0000A3ADD /* ZNPlace.h */,
+				D476F67E174E06D7000A3ADD /* ZNPlaceType.h */,
+				D476F67F174E06D7000A3ADD /* ZNPlaceType.m */,
+				D476F67B174DFB4F000A3ADD /* ZNEvent.h */,
+				D476F681174E0828000A3ADD /* ZNEventType.h */,
+				D476F682174E0828000A3ADD /* ZNEventType.m */,
+				D476F67C174DFB4F000A3ADD /* ZNEvent.m */,
+				D476F679174DF5C0000A3ADD /* ZNPlace.m */,
 				D42E5588174BCEC70070A864 /* MainStoryboard_iPhone.storyboard */,
 				D42E558B174BCEC70070A864 /* MainStoryboard_iPad.storyboard */,
 				D42E558E174BCEC70070A864 /* ZNFirstViewController.h */,
@@ -300,6 +320,10 @@
 				D42E5581174BCEC70070A864 /* ZNAppDelegate.m in Sources */,
 				D42E5590174BCEC70070A864 /* ZNFirstViewController.m in Sources */,
 				D42E5597174BCEC70070A864 /* ZNSecondViewController.m in Sources */,
+				D476F67A174DF5C0000A3ADD /* ZNPlace.m in Sources */,
+				D476F67D174DFB4F000A3ADD /* ZNEvent.m in Sources */,
+				D476F680174E06D7000A3ADD /* ZNPlaceType.m in Sources */,
+				D476F683174E0828000A3ADD /* ZNEventType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +514,7 @@
 				D42E55B5174BCEC70070A864 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D42E55B6174BCEC70070A864 /* Build configuration list for PBXNativeTarget "ZheNarTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +523,7 @@
 				D42E55B8174BCEC70070A864 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
