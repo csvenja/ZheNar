@@ -35,6 +35,7 @@
 		D476F67D174DFB4F000A3ADD /* ZNEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67C174DFB4F000A3ADD /* ZNEvent.m */; };
 		D476F680174E06D7000A3ADD /* ZNPlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67F174E06D7000A3ADD /* ZNPlaceType.m */; };
 		D476F683174E0828000A3ADD /* ZNEventType.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F682174E0828000A3ADD /* ZNEventType.m */; };
+		D476F685174E30E6000A3ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D476F684174E30E6000A3ADD /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		D476F67F174E06D7000A3ADD /* ZNPlaceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNPlaceType.m; sourceTree = "<group>"; };
 		D476F681174E0828000A3ADD /* ZNEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEventType.h; sourceTree = "<group>"; };
 		D476F682174E0828000A3ADD /* ZNEventType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNEventType.m; sourceTree = "<group>"; };
+		D476F684174E30E6000A3ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D476F685174E30E6000A3ADD /* MapKit.framework in Frameworks */,
 				D42E5571174BCEC70070A864 /* UIKit.framework in Frameworks */,
 				D42E5573174BCEC70070A864 /* Foundation.framework in Frameworks */,
 				D42E5575174BCEC70070A864 /* CoreGraphics.framework in Frameworks */,
@@ -129,6 +132,7 @@
 		D42E5564174BCEC70070A864 = {
 			isa = PBXGroup;
 			children = (
+				D476F684174E30E6000A3ADD /* MapKit.framework */,
 				D42E5576174BCEC70070A864 /* ZheNar */,
 				D42E55A8174BCEC70070A864 /* ZheNarTests */,
 				D42E556F174BCEC70070A864 /* Frameworks */,
