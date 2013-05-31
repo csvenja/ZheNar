@@ -36,6 +36,7 @@
 		D476F680174E06D7000A3ADD /* ZNPlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67F174E06D7000A3ADD /* ZNPlaceType.m */; };
 		D476F683174E0828000A3ADD /* ZNEventType.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F682174E0828000A3ADD /* ZNEventType.m */; };
 		D476F685174E30E6000A3ADD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D476F684174E30E6000A3ADD /* MapKit.framework */; };
+		D4C4E0E0175865E20003516C /* ZNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C4E0DF175865E20003516C /* ZNUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		D476F681174E0828000A3ADD /* ZNEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEventType.h; sourceTree = "<group>"; };
 		D476F682174E0828000A3ADD /* ZNEventType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNEventType.m; sourceTree = "<group>"; };
 		D476F684174E30E6000A3ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D4C4E0DE175865E20003516C /* ZNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNUser.h; sourceTree = "<group>"; };
+		D4C4E0DF175865E20003516C /* ZNUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 				D476F67C174DFB4F000A3ADD /* ZNEvent.m */,
 				D476F681174E0828000A3ADD /* ZNEventType.h */,
 				D476F682174E0828000A3ADD /* ZNEventType.m */,
+				D4C4E0DE175865E20003516C /* ZNUser.h */,
+				D4C4E0DF175865E20003516C /* ZNUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				D476F67D174DFB4F000A3ADD /* ZNEvent.m in Sources */,
 				D476F680174E06D7000A3ADD /* ZNPlaceType.m in Sources */,
 				D476F683174E0828000A3ADD /* ZNEventType.m in Sources */,
+				D4C4E0E0175865E20003516C /* ZNUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
