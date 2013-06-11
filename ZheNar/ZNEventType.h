@@ -10,6 +10,6 @@
 
 @interface ZNEventType : NSObject
 
-@property (strong, nonatomic) NSString * name;
+@property (strong, nonatomic) NSString *name;
 
 @end

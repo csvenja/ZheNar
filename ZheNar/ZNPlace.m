@@ -10,6 +10,4 @@
 
 @implementation ZNPlace
 
-
-
 @end

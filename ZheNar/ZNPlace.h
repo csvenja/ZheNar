@@ -11,9 +11,9 @@
 
 @interface ZNPlace : NSObject
 
-@property (strong, nonatomic) NSString * name;
+@property (strong, nonatomic) NSString *name;
 @property (nonatomic) CGPoint position;
-@property (strong, nonatomic) ZNPlaceType * type;
-@property (strong, nonatomic) NSString * description;
+@property (strong, nonatomic) ZNPlaceType *type;
+@property (strong, nonatomic) NSString *description;
 
 @end
