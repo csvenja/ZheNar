@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - Map-->
+        <!--Map View Controller - Map-->
         <scene sceneID="11">
             <objects>
-                <viewController title="Map" id="2" customClass="ZNFirstViewController" sceneMemberID="viewController">
+                <viewController title="Map" id="2" customClass="ZNMapViewController" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="nGA-Ly-8H1">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -18,10 +18,10 @@
             </objects>
             <point key="canvasLocation" x="670" y="-236"/>
         </scene>
-        <!--Second View Controller - Places-->
+        <!--Place View Controller - Places-->
         <scene sceneID="13">
             <objects>
-                <viewController title="Places" id="3" customClass="ZNSecondViewController" sceneMemberID="viewController">
+                <viewController title="Places" id="3" customClass="ZNPlaceViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nUT-0v-PIl">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,58 +33,81 @@
             </objects>
             <point key="canvasLocation" x="675" y="572"/>
         </scene>
-        <!--View Controller - Events-->
+        <!--Events View Controller - Events-->
         <scene sceneID="UY6-Kq-M3v">
             <objects>
-                <viewController title="Events" id="4Ez-SL-Buw" sceneMemberID="viewController">
+                <viewController title="Events" id="4Ez-SL-Buw" customClass="ZNEventsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nr7-u1-DFq">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uji-zt-3Pe">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" id="5Uy-s7-BoS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" textLabel="xvX-Cr-X0G" style="IBUITableViewCellStyleDefault" id="5Uy-s7-BoS">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-Cr-X0G">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="7oq-ki-NmM" kind="push" id="dj0-MZ-f1y"/>
+                                            <segue destination="7oq-ki-NmM" kind="push" identifier="Show Event" id="dj0-MZ-f1y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4Ez-SL-Buw" id="mIB-tv-4KW"/>
+                                    <outlet property="delegate" destination="4Ez-SL-Buw" id="9Qe-FM-SQA"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="uji-zt-3Pe" firstAttribute="top" secondItem="nr7-u1-DFq" secondAttribute="top" type="default" id="2pP-Hb-uNN"/>
                             <constraint firstItem="uji-zt-3Pe" firstAttribute="leading" secondItem="nr7-u1-DFq" secondAttribute="leading" type="default" id="5fr-Wk-4C7"/>
                             <constraint firstItem="uji-zt-3Pe" firstAttribute="bottom" secondItem="nr7-u1-DFq" secondAttribute="bottom" type="default" id="YhR-rb-XcO"/>
-                            <constraint firstItem="uji-zt-3Pe" firstAttribute="top" secondItem="nr7-u1-DFq" secondAttribute="top" type="default" id="nA6-5Y-43J"/>
                             <constraint firstItem="uji-zt-3Pe" firstAttribute="trailing" secondItem="nr7-u1-DFq" secondAttribute="trailing" type="default" id="zPc-me-ybP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Events" image="83-calendar.png" id="RmU-DO-gay"/>
+                    <navigationItem key="navigationItem" id="xuZ-el-Six"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Kdb-8Z-NUA" id="8vX-oO-edO"/>
+                        <outlet property="tableView" destination="uji-zt-3Pe" id="Qdp-QS-USo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sW8-9Q-3Iq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Kdb-8Z-NUA">
+                    <connections>
+                        <outlet property="delegate" destination="4Ez-SL-Buw" id="i0a-Nl-j6B"/>
+                        <outlet property="searchContentsController" destination="4Ez-SL-Buw" id="7Hp-1D-u0D"/>
+                        <outlet property="searchResultsDataSource" destination="4Ez-SL-Buw" id="zMC-1r-ENV"/>
+                        <outlet property="searchResultsDelegate" destination="4Ez-SL-Buw" id="pth-N6-Q5i"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1068" y="180"/>
+            <point key="canvasLocation" x="1594" y="180"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Event Detail View Controller-->
         <scene sceneID="kGS-PH-YaK">
             <objects>
-                <tableViewController id="7oq-ki-NmM" sceneMemberID="viewController">
+                <tableViewController id="7oq-ki-NmM" customClass="ZNEventDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VpQ-tc-Rqv">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="df9-VK-RTh">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="name" textLabel="W4J-Ha-mdJ" detailTextLabel="Ozu-v8-hMd" style="IBUITableViewCellStyleValue2" id="86n-q6-Y4t">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Name" textLabel="W4J-Ha-mdJ" detailTextLabel="Ozu-v8-hMd" style="IBUITableViewCellStyleValue2" id="86n-q6-Y4t">
                                         <rect key="frame" x="0.0" y="10" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -105,7 +128,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="type" textLabel="fIa-SO-cW0" detailTextLabel="E86-O4-rYU" style="IBUITableViewCellStyleValue2" id="sTR-FG-aBk">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Type" textLabel="fIa-SO-cW0" detailTextLabel="E86-O4-rYU" style="IBUITableViewCellStyleValue2" id="sTR-FG-aBk">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -130,7 +153,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="organization" textLabel="cHh-4X-R1m" detailTextLabel="e30-yC-NEX" style="IBUITableViewCellStyleValue2" id="Dyq-0B-ZQn">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Organization" textLabel="cHh-4X-R1m" detailTextLabel="e30-yC-NEX" style="IBUITableViewCellStyleValue2" id="Dyq-0B-ZQn">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -151,7 +174,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="host" textLabel="a8g-gj-Nhg" detailTextLabel="Q8O-zs-gv6" style="IBUITableViewCellStyleValue2" id="NbW-4D-CzF">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Host" textLabel="a8g-gj-Nhg" detailTextLabel="Q8O-zs-gv6" style="IBUITableViewCellStyleValue2" id="NbW-4D-CzF">
                                         <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -172,7 +195,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="description" textLabel="sZo-wP-6cG" detailTextLabel="uK2-85-S1c" style="IBUITableViewCellStyleValue2" id="0au-fI-Gpx">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Description" textLabel="sZo-wP-6cG" detailTextLabel="uK2-85-S1c" style="IBUITableViewCellStyleValue2" id="0au-fI-Gpx">
                                         <rect key="frame" x="0.0" y="187" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -201,7 +224,7 @@
                             </tableViewSection>
                             <tableViewSection id="lti-aO-re3">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="place" textLabel="DUY-1g-iEv" detailTextLabel="OVm-CT-of6" style="IBUITableViewCellStyleValue2" id="ek7-5n-e40">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Place" textLabel="DUY-1g-iEv" detailTextLabel="OVm-CT-of6" style="IBUITableViewCellStyleValue2" id="ek7-5n-e40">
                                         <rect key="frame" x="0.0" y="252" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -226,7 +249,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailed place" textLabel="ebh-Qu-flr" detailTextLabel="6Ox-IY-B60" style="IBUITableViewCellStyleValue2" id="Ifz-7H-i7Y">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Detailed Place" textLabel="ebh-Qu-flr" detailTextLabel="6Ox-IY-B60" style="IBUITableViewCellStyleValue2" id="Ifz-7H-i7Y">
                                         <rect key="frame" x="0.0" y="297" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -251,7 +274,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="start time" textLabel="q6q-ae-zbJ" detailTextLabel="9ju-qu-YHW" style="IBUITableViewCellStyleValue2" id="m5t-Dj-Qh0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event Start Time" textLabel="q6q-ae-zbJ" detailTextLabel="9ju-qu-YHW" style="IBUITableViewCellStyleValue2" id="m5t-Dj-Qh0">
                                         <rect key="frame" x="0.0" y="341" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -276,7 +299,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="end time" textLabel="5b5-qg-vbS" detailTextLabel="rjb-KD-Pyb" style="IBUITableViewCellStyleValue2" id="LUX-xR-bzf">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Event End Time" textLabel="5b5-qg-vbS" detailTextLabel="rjb-KD-Pyb" style="IBUITableViewCellStyleValue2" id="LUX-xR-bzf">
                                         <rect key="frame" x="0.0" y="385" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -305,7 +328,7 @@
                             </tableViewSection>
                             <tableViewSection id="hvw-DI-cqC">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="follower count" textLabel="Osh-hr-eeM" detailTextLabel="9ow-UL-BMn" style="IBUITableViewCellStyleValue2" id="kbR-zm-3Xb">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Follower" textLabel="Osh-hr-eeM" detailTextLabel="9ow-UL-BMn" style="IBUITableViewCellStyleValue2" id="kbR-zm-3Xb">
                                         <rect key="frame" x="0.0" y="450" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -339,10 +362,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="3dG-Wf-B5l"/>
+                    <connections>
+                        <outlet property="Description" destination="0au-fI-Gpx" id="sET-ee-rQR"/>
+                        <outlet property="DetailedPlace" destination="Ifz-7H-i7Y" id="1a7-sr-9Lg"/>
+                        <outlet property="EndTime" destination="LUX-xR-bzf" id="Pm2-59-OLC"/>
+                        <outlet property="Follower" destination="kbR-zm-3Xb" id="g2t-rW-u0d"/>
+                        <outlet property="Host" destination="NbW-4D-CzF" id="9eq-PS-uYa"/>
+                        <outlet property="Name" destination="86n-q6-Y4t" id="ikV-aS-kxO"/>
+                        <outlet property="Organization" destination="Dyq-0B-ZQn" id="Uyi-8f-HeO"/>
+                        <outlet property="Place" destination="ek7-5n-e40" id="Mca-ZD-Eag"/>
+                        <outlet property="StartTime" destination="m5t-Dj-Qh0" id="75w-qQ-eSE"/>
+                        <outlet property="Type" destination="sTR-FG-aBk" id="O7E-dv-C5e"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSs-AH-OYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="180"/>
+            <point key="canvasLocation" x="2047" y="180"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -357,12 +392,31 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
-                        <segue destination="4Ez-SL-Buw" kind="relationship" relationship="viewControllers" id="4k8-yZ-hHp"/>
+                        <segue destination="0Dk-Bf-D4T" kind="relationship" relationship="viewControllers" id="4k8-yZ-hHp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
+        </scene>
+        <!--Navigation Controller - Events-->
+        <scene sceneID="hqM-Ef-V98">
+            <objects>
+                <navigationController id="0Dk-Bf-D4T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Events" image="83-calendar.png" id="RmU-DO-gay"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1AW-fC-xdN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4Ez-SL-Buw" kind="relationship" relationship="rootViewController" id="uuj-b6-4vJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvq-eE-ggz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068" y="180"/>
         </scene>
     </scenes>
     <resources>
@@ -374,11 +428,32 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
-        <class className="ZNFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNFirstViewController.h"/>
+        <class className="ZNEventDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNEventDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="Description" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="DetailedPlace" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="EndTime" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="Follower" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="Host" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="Name" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="Organization" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="Place" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="StartTime" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="Type" candidateClass="UITableViewCell"/>
+            </relationships>
         </class>
-        <class className="ZNSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNSecondViewController.h"/>
+        <class className="ZNEventsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNEventsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ZNMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNMapViewController.h"/>
+        </class>
+        <class className="ZNPlaceViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNPlaceViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
