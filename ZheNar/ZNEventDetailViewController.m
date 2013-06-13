@@ -10,18 +10,6 @@
 
 @interface ZNEventDetailViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *type;
-@property (weak, nonatomic) IBOutlet UILabel *organization;
-@property (weak, nonatomic) IBOutlet UILabel *host;
-@property (weak, nonatomic) IBOutlet UILabel *description;
-
-@property (weak, nonatomic) IBOutlet UILabel *place;
-@property (weak, nonatomic) IBOutlet UILabel *detailedPlace;
-@property (weak, nonatomic) IBOutlet UILabel *startTime;
-@property (weak, nonatomic) IBOutlet UILabel *endTime;
-
-@property (weak, nonatomic) IBOutlet UILabel *follower;
 
 
 @end
@@ -30,8 +18,6 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
     self.name.text = _event.name;
     self.type.text = _event.type.name;
     self.organization.text = _event.organization;
@@ -44,6 +30,8 @@
     self.endTime.text = [NSDateFormatter localizedStringFromDate:_event.endTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     
     self.follower.text = [NSString stringWithFormat:@"%d", _event.followerCount];
+    
+    [super viewDidLoad];
 }
 
 @end
