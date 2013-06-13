@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZNEvent.h"
 
-@interface ZNEventDetailViewController : UITableViewController
+@interface ZNEventDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) ZNEvent *event;
 

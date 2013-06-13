@@ -19,14 +19,20 @@
     if ([sender isKindOfClass:[UITableViewCell class]]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
-            if ([segue.identifier isEqualToString:@"Show Event"]) {
-                if ([segue.destinationViewController respondsToSelector:@selector(setEventDetail:)]) {
-                    [segue.destinationViewController performSelector:@selector(setEventDetail:) withObject:sender];
-                    [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
-                }
+            if ([segue.identifier isEqualToString:@"ShowEvent"]) {
+                //[segue.destinationViewController setEvent:[self.events objectAtIndex:indexPath.row]];
+                [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
             }
         }
     }
+}
+
+- (void)viewDidLoad
+{
+    ZNEvent *eventsForTest = [[ZNEvent alloc] init];
+    eventsForTest.name = @"miaow";
+    eventsForTest.host.name = @"svenja";
+    _events = @[eventsForTest];
 }
 
 - (void)setEvents:(NSArray *)events
@@ -47,7 +53,7 @@
 
 - (NSString *)titleForRow:(NSUInteger)row
 {
-    return [self.events[row][@"name"] description];
+    return [self.events[row] name];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

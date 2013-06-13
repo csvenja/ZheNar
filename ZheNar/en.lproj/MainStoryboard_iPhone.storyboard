@@ -60,7 +60,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="7oq-ki-NmM" kind="push" identifier="Show Event" id="dj0-MZ-f1y"/>
+                                            <segue destination="7oq-ki-NmM" kind="push" id="mRB-wn-mq7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -115,7 +115,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="名称" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4J-Ha-mdJ">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                                                     <color key="textColor" red="0.32156862745098042" green="0.40000000000000002" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -363,16 +363,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="3dG-Wf-B5l"/>
                     <connections>
-                        <outlet property="Description" destination="0au-fI-Gpx" id="sET-ee-rQR"/>
-                        <outlet property="DetailedPlace" destination="Ifz-7H-i7Y" id="1a7-sr-9Lg"/>
-                        <outlet property="EndTime" destination="LUX-xR-bzf" id="Pm2-59-OLC"/>
-                        <outlet property="Follower" destination="kbR-zm-3Xb" id="g2t-rW-u0d"/>
-                        <outlet property="Host" destination="NbW-4D-CzF" id="9eq-PS-uYa"/>
-                        <outlet property="Name" destination="86n-q6-Y4t" id="ikV-aS-kxO"/>
-                        <outlet property="Organization" destination="Dyq-0B-ZQn" id="Uyi-8f-HeO"/>
-                        <outlet property="Place" destination="ek7-5n-e40" id="Mca-ZD-Eag"/>
-                        <outlet property="StartTime" destination="m5t-Dj-Qh0" id="75w-qQ-eSE"/>
-                        <outlet property="Type" destination="sTR-FG-aBk" id="O7E-dv-C5e"/>
+                        <outlet property="description" destination="uK2-85-S1c" id="ChL-3t-zJk"/>
+                        <outlet property="detailedPlace" destination="6Ox-IY-B60" id="AQD-FP-y19"/>
+                        <outlet property="endTime" destination="rjb-KD-Pyb" id="YSR-On-WdF"/>
+                        <outlet property="follower" destination="9ow-UL-BMn" id="Wiz-Qc-o1d"/>
+                        <outlet property="host" destination="Q8O-zs-gv6" id="ihd-gE-V0p"/>
+                        <outlet property="name" destination="Ozu-v8-hMd" id="s38-Jl-YHL"/>
+                        <outlet property="organization" destination="e30-yC-NEX" id="4Y2-Bw-Fqw"/>
+                        <outlet property="place" destination="OVm-CT-of6" id="5Nf-OW-SF9"/>
+                        <outlet property="startTime" destination="9ju-qu-YHW" id="ple-gm-9Ei"/>
+                        <outlet property="type" destination="E86-O4-rYU" id="oaL-RA-GwU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSs-AH-OYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,16 +431,16 @@
         <class className="ZNEventDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNEventDetailViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="Description" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="DetailedPlace" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="EndTime" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="Follower" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="Host" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="Name" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="Organization" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="Place" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="StartTime" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="Type" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailedPlace" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="follower" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="host" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="organization" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="place" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="type" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ZNEventsViewController" superclassName="UIViewController">

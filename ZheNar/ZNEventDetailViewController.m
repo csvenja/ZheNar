@@ -10,25 +10,19 @@
 
 @interface ZNEventDetailViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableViewCell *Name;
-@property (weak, nonatomic) IBOutlet UITableViewCell *Type;
-@property (weak, nonatomic) IBOutlet UITableViewCell *Organization;
-@property (weak, nonatomic) IBOutlet UITableViewCell *Host;
-@property (weak, nonatomic) IBOutlet UITableViewCell *Description;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *type;
+@property (weak, nonatomic) IBOutlet UILabel *organization;
+@property (weak, nonatomic) IBOutlet UILabel *host;
+@property (weak, nonatomic) IBOutlet UILabel *description;
 
-@property (weak, nonatomic) IBOutlet UITableViewCell *Place;
-@property (weak, nonatomic) IBOutlet UITableViewCell *DetailedPlace;
-@property (weak, nonatomic) IBOutlet UITableViewCell *StartTime;
-@property (weak, nonatomic) IBOutlet UITableViewCell *EndTime;
+@property (weak, nonatomic) IBOutlet UILabel *place;
+@property (weak, nonatomic) IBOutlet UILabel *detailedPlace;
+@property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UILabel *endTime;
 
-@property (weak, nonatomic) IBOutlet UITableViewCell *Follower;
+@property (weak, nonatomic) IBOutlet UILabel *follower;
 
-@property (strong, nonatomic) NSArray *rowsInBasic;
-@property (strong, nonatomic) NSMutableArray *availableRowsInBasic;
-@property (strong, nonatomic) NSArray *rowsInDetail;
-@property (strong, nonatomic) NSMutableArray *availableRowsInDetail;
-@property (strong, nonatomic) NSArray *rowsInMore;
-@property (strong, nonatomic) NSMutableArray *availableRowsInMore;
 
 @end
 
@@ -37,78 +31,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.rowsInBasic = @[@"Name", @"Typee", @"Organization", @"Host", @"Description"];
-    self.rowsInDetail = @[@"Place", @"DetailedPlace", @"StartTime", @"EndTime"];
-    self.rowsInMore = @[@"Follower"];
-}
-
-enum section {
-    basicInfoSection = 0,
-    detailInfoSection,
-    moreInfoSection,
-    numOfSections
-};
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return numOfSections;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section == basicInfoSection) {
-        self.availableRowsInBasic = [NSMutableArray new];
-        for (NSString *rowName in self.rowsInBasic) {
-            if ([[self.event valueForKey:rowName] length] > 0) {
-                [self.availableRowsInBasic addObject:rowName];
-            }
-        }
-        return self.availableRowsInBasic.count;
-    }
-    else if (section == detailInfoSection) {
-        self.availableRowsInDetail = [NSMutableArray new];
-        for (NSString *rowName in self.rowsInDetail) {
-            if ([[self.event valueForKey:rowName] length] > 0) {
-                [self.availableRowsInDetail addObject:rowName];
-            }
-        }
-        return self.availableRowsInDetail.count;
-    }
-    else if (section == moreInfoSection) {
-        self.availableRowsInMore = [NSMutableArray new];
-        for (NSString *rowName in self.rowsInMore) {
-            if ([[self.event valueForKey:rowName] length] > 0) {
-                [self.availableRowsInMore addObject:rowName];
-            }
-        }
-        return self.availableRowsInMore.count;
-    }
     
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell;
+    self.name.text = _event.name;
+    self.type.text = _event.type.name;
+    self.organization.text = _event.organization;
+    self.host.text = _event.host.name;
+    self.description.text = _event.description;
     
-    if (indexPath.section == basicInfoSection) {
-        NSString *rowName = self.availableRowsInBasic[indexPath.row];
-        cell = [tableView dequeueReusableCellWithIdentifier:rowName];
-        cell.detailTextLabel.text = [self.event valueForKey:rowName];
-    }
-    else if (indexPath.section == detailInfoSection) {
-        NSString *rowName = self.availableRowsInDetail[indexPath.row];
-        cell = [tableView dequeueReusableCellWithIdentifier:rowName];
-        cell.detailTextLabel.text = [self.event valueForKey:rowName];
-    }
-    else if (indexPath.section == moreInfoSection) {
-        NSString *rowName = self.availableRowsInMore[indexPath.row];
-        cell = [tableView dequeueReusableCellWithIdentifier:rowName];
-        cell.detailTextLabel.text = [self.event valueForKey:rowName];
-    }
+    self.place.text = _event.place.name;
+    self.detailedPlace.text = _event.detailedPlace;
+    self.startTime.text = [NSDateFormatter localizedStringFromDate:_event.startTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    self.endTime.text = [NSDateFormatter localizedStringFromDate:_event.endTime dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     
-	return cell;
+    self.follower.text = [NSString stringWithFormat:@"%d", _event.followerCount];
 }
-
 
 @end
