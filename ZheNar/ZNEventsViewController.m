@@ -7,6 +7,7 @@
 //
 
 #import "ZNEventsViewController.h"
+#import "ZNEventDetailViewController.h"
 
 @interface ZNEventsViewController ()
 
@@ -20,7 +21,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"ShowEvent"]) {
-                //[segue.destinationViewController setEvent:[self.events objectAtIndex:indexPath.row]];
+                [segue.destinationViewController setEvent:[self.events objectAtIndex:indexPath.row]];
                 [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
             }
         }
