@@ -80,4 +80,12 @@
 	return cell;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [super viewWillAppear:animated];
+}
+
 @end
