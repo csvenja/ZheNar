@@ -10,15 +10,12 @@
 
 @interface ZNEventDetailViewController ()
 
-
-
 @end
 
 @implementation ZNEventDetailViewController
 
 - (void)viewDidLoad
 {
-    self.name.text = _event.name;
     self.type.text = _event.type.name;
     self.organization.text = _event.organization;
     self.host.text = _event.host.name;

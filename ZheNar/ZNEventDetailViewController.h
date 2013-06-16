@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) ZNEvent *event;
 
-@property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *type;
 @property (weak, nonatomic) IBOutlet UILabel *organization;
 @property (weak, nonatomic) IBOutlet UILabel *host;
