@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZNEventsViewController.h"
 
-@interface ZNPlaceViewController : UIViewController
+@interface ZNPlacesViewController : ZNEventsViewController
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -16,22 +16,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="-236"/>
+            <point key="canvasLocation" x="590" y="-382"/>
         </scene>
-        <!--Place View Controller - Places-->
+        <!--Places View Controller - Places-->
         <scene sceneID="13">
             <objects>
-                <viewController title="Places" id="3" customClass="ZNPlaceViewController" sceneMemberID="viewController">
+                <viewController title="Places" id="3" customClass="ZNPlacesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nUT-0v-PIl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="9BO-0m-EbH" style="IBUITableViewCellStyleDefault" id="0i3-lU-kXl">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9BO-0m-EbH">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3" id="tjX-Ur-tEj"/>
+                            <outlet property="delegate" destination="3" id="yWY-ij-wbc"/>
+                        </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Places" image="07-map-marker.png" id="6"/>
+                    <navigationItem key="navigationItem" title="Places" id="Yuf-Jk-kp3"/>
+                    <connections>
+                        <outlet property="tableView" destination="nUT-0v-PIl" id="rSs-Nh-ngk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="572"/>
+            <point key="canvasLocation" x="1472" y="13"/>
+        </scene>
+        <!--Navigation Controller - Places-->
+        <scene sceneID="h4t-Dz-7O7">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="kHu-py-3Ac" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Places" image="07-map-marker.png" id="Rpk-NC-MLL"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YtV-pU-tRc">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3" kind="relationship" relationship="rootViewController" id="WRX-S5-aOx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nA6-TB-xQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="13"/>
         </scene>
         <!--Events View Controller - Events-->
         <scene sceneID="UY6-Kq-M3v">
@@ -44,7 +86,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uji-zt-3Pe">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" textLabel="xvX-Cr-X0G" style="IBUITableViewCellStyleDefault" id="5Uy-s7-BoS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="xvX-Cr-X0G" style="IBUITableViewCellStyleDefault" id="5Uy-s7-BoS">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -94,7 +136,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1594" y="180"/>
+            <point key="canvasLocation" x="1472" y="714"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="kGS-PH-YaK">
@@ -355,7 +397,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSs-AH-OYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047" y="180"/>
+            <point key="canvasLocation" x="1965" y="714"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -369,13 +411,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                        <segue destination="kHu-py-3Ac" kind="relationship" relationship="viewControllers" id="Jl6-jE-XXs"/>
                         <segue destination="0Dk-Bf-D4T" kind="relationship" relationship="viewControllers" id="4k8-yZ-hHp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="150" y="342"/>
         </scene>
         <!--Navigation Controller - Events-->
         <scene sceneID="hqM-Ef-V98">
@@ -394,7 +436,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvq-eE-ggz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="180"/>
+            <point key="canvasLocation" x="990" y="714"/>
         </scene>
     </scenes>
     <resources>
@@ -429,8 +471,11 @@
         <class className="ZNMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNMapViewController.h"/>
         </class>
-        <class className="ZNPlaceViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNPlaceViewController.h"/>
+        <class className="ZNPlacesViewController" superclassName="ZNEventsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNPlacesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
