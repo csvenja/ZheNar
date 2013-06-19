@@ -12,6 +12,7 @@
 #import "ZNEventType.h"
 #import "ZNUser.h"
 #import "ZNPlace.h"
+#import "ZNEventList.h"
 
 @interface ZNEventsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

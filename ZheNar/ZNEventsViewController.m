@@ -30,24 +30,13 @@
 
 - (void)viewDidLoad
 {
-    ZNEvent *eventsForTest = [[ZNEvent alloc] init];
-    eventsForTest.name = @"SE & B/S Overtime";
-    eventsForTest.type = [[ZNEventType alloc] init];
-    eventsForTest.type.name = @"Study";
-    eventsForTest.organization = @"DDP";
-    eventsForTest.host = [[ZNUser alloc] init];
-    eventsForTest.host.name = @"Master";
-    eventsForTest.description = @"Time is grade!";
+    [super viewDidLoad];
     
-    eventsForTest.place = [[ZNPlace alloc] init];
-    eventsForTest.place.name = @"Meng Minwei Building";
-    eventsForTest.detailedPlace = @"218";
-    eventsForTest.startTime = [NSDate date];
-    eventsForTest.endTime = [NSDate date];
-    
-    eventsForTest.followerCount = 4;
-    
-    _events = @[eventsForTest, eventsForTest];
+    [[ZNEventList me] requestEventListWithSuccess:^(NSArray *events) {
+        self.events = events;
+    } failure:^(NSError *error) {
+        ;
+    }];
 }
 
 - (void)setEvents:(NSArray *)events
