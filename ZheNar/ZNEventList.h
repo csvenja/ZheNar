@@ -15,11 +15,11 @@
 
 @interface ZNEventList : NSObject
 
-@property (strong, nonatomic) NSArray *eventList;
+@property (strong, nonatomic) NSMutableArray *eventList;
 @property AFHTTPClient *httpClient;
 
 + (ZNEventList *)me;
 - (void)requestJSONWithPath:(NSString *)path success:(void (^)(id))success failure:(void (^)(NSError *))failure;
-- (void)requestEventListWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure;
+- (void)requestEventListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
 
 @end

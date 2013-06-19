@@ -8,7 +8,7 @@
 
 #import "ZNEventList.h"
 
-NSString * const baseURL = @"http://42.121.18.11:24601/";
+NSString * const baseURL = @"http://localhost";
 
 @implementation ZNEventList
 
@@ -27,25 +27,6 @@ NSString * const baseURL = @"http://42.121.18.11:24601/";
     if (self) {
         self.httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
         [self.httpClient setParameterEncoding:AFJSONParameterEncoding];
-        
-        ZNEvent *eventsForTest = [[ZNEvent alloc] init];
-        eventsForTest.name = @"SE & B/S Overtime";
-        eventsForTest.type = [[ZNEventType alloc] init];
-        eventsForTest.type.name = @"Study";
-        eventsForTest.organization = @"DDP";
-        eventsForTest.host = [[ZNUser alloc] init];
-        eventsForTest.host.name = @"Master";
-        eventsForTest.description = @"Time is grade!";
-        
-        eventsForTest.place = [[ZNPlace alloc] init];
-        eventsForTest.place.name = @"Meng Minwei Building";
-        eventsForTest.detailedPlace = @"218";
-        eventsForTest.startTime = [NSDate date];
-        eventsForTest.endTime = [NSDate date];
-        
-        eventsForTest.followerCount = 4;
-        
-        self.eventList = @[eventsForTest, eventsForTest];
     }
     return self;
 }
@@ -62,9 +43,26 @@ NSString * const baseURL = @"http://42.121.18.11:24601/";
     [operation start];
 }
 
-- (void)requestEventListWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure;
+- (void)requestEventListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
 {
-    [self requestJSONWithPath:@"miaow/" success:^(id JSON) {
+    [self requestJSONWithPath:@"/ZheNar/event/test.json" success:^(id JSON) {
+        self.eventList = [[NSMutableArray alloc] init];
+        for (id item in JSON) {
+            ZNEvent *event = [[ZNEvent alloc] init];
+            event.name = item[@"name"];
+            event.type = [[ZNEventType alloc] init];
+            event.type.name = [NSString stringWithFormat:@"%@", item[@"type_id"]];
+            event.organization = item[@"organization"];
+            event.host = [[ZNUser alloc] init];
+            event.host.name = item[@"host"];
+            event.description = item[@"description"];
+            event.startTime = item[@"start_time"];
+            event.endTime = item[@"end_time"];
+            event.place.name = [NSString stringWithFormat:@"%@", item[@"place_id"]];
+            event.detailedPlace = item[@"address"];
+            event.followerCount = [item[@"follower_count"] integerValue];
+            [self.eventList addObject:event];
+        }
         success(self.eventList);
     } failure:failure];
 }
