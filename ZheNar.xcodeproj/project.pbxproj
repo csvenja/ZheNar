@@ -31,7 +31,7 @@
 		D42E55AD174BCEC70070A864 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D42E55AB174BCEC70070A864 /* InfoPlist.strings */; };
 		D42E55B0174BCEC70070A864 /* ZheNarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D42E55AF174BCEC70070A864 /* ZheNarTests.m */; };
 		D456554A17670ACC004BE2D6 /* ZNLatestEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D456554917670ACC004BE2D6 /* ZNLatestEventsViewController.m */; };
-		D45BC1C2177074CF003C6168 /* ZNEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = D45BC1C1177074CF003C6168 /* ZNEventList.m */; };
+		D45BC1CC1771CCFC003C6168 /* ZNNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = D45BC1CB1771CCFC003C6168 /* ZNNetwork.m */; };
 		D476F67A174DF5C0000A3ADD /* ZNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F679174DF5C0000A3ADD /* ZNPlace.m */; };
 		D476F67D174DFB4F000A3ADD /* ZNEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67C174DFB4F000A3ADD /* ZNEvent.m */; };
 		D476F680174E06D7000A3ADD /* ZNPlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67F174E06D7000A3ADD /* ZNPlaceType.m */; };
@@ -84,8 +84,8 @@
 		D42E55AF174BCEC70070A864 /* ZheNarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZheNarTests.m; sourceTree = "<group>"; };
 		D456554817670ACC004BE2D6 /* ZNLatestEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNLatestEventsViewController.h; sourceTree = "<group>"; };
 		D456554917670ACC004BE2D6 /* ZNLatestEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNLatestEventsViewController.m; sourceTree = "<group>"; };
-		D45BC1C0177074CF003C6168 /* ZNEventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEventList.h; sourceTree = "<group>"; };
-		D45BC1C1177074CF003C6168 /* ZNEventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNEventList.m; sourceTree = "<group>"; };
+		D45BC1CA1771CCFC003C6168 /* ZNNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNNetwork.h; sourceTree = "<group>"; };
+		D45BC1CB1771CCFC003C6168 /* ZNNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNNetwork.m; sourceTree = "<group>"; };
 		D476F678174DF5C0000A3ADD /* ZNPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNPlace.h; sourceTree = "<group>"; };
 		D476F679174DF5C0000A3ADD /* ZNPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNPlace.m; sourceTree = "<group>"; };
 		D476F67B174DFB4F000A3ADD /* ZNEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEvent.h; sourceTree = "<group>"; };
@@ -151,6 +151,8 @@
 		D42D5F37174E36EA00887CFA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D45BC1CA1771CCFC003C6168 /* ZNNetwork.h */,
+				D45BC1CB1771CCFC003C6168 /* ZNNetwork.m */,
 				D42E557F174BCEC70070A864 /* ZNAppDelegate.h */,
 				D42E5580174BCEC70070A864 /* ZNAppDelegate.m */,
 				D476F678174DF5C0000A3ADD /* ZNPlace.h */,
@@ -163,8 +165,6 @@
 				D476F682174E0828000A3ADD /* ZNEventType.m */,
 				D4C4E0DE175865E20003516C /* ZNUser.h */,
 				D4C4E0DF175865E20003516C /* ZNUser.m */,
-				D45BC1C0177074CF003C6168 /* ZNEventList.h */,
-				D45BC1C1177074CF003C6168 /* ZNEventList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -433,7 +433,7 @@
 				D4968BBC17646714009AB804 /* ZNMapViewController.m in Sources */,
 				D4968BBF17646722009AB804 /* ZNPlacesViewController.m in Sources */,
 				D456554A17670ACC004BE2D6 /* ZNLatestEventsViewController.m in Sources */,
-				D45BC1C2177074CF003C6168 /* ZNEventList.m in Sources */,
+				D45BC1CC1771CCFC003C6168 /* ZNNetwork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

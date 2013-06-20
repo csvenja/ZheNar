@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     
-    [[ZNEventList me] requestEventListWithSuccess:^(NSArray *events) {
+    [[ZNNetwork me] requestEventListWithSuccess:^(NSArray *events) {
         self.events = events;
     } failure:^(NSError *error) {
         ;

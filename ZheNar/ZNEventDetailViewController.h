@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *description;
 
 @property (weak, nonatomic) IBOutlet UILabel *place;
+@property (weak, nonatomic) IBOutlet UITableViewCell *placeCell;
 @property (weak, nonatomic) IBOutlet UILabel *detailedPlace;
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;

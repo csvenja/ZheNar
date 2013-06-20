@@ -13,13 +13,18 @@
 #import "ZNEventType.h"
 #import "ZNPlace.h"
 
-@interface ZNEventList : NSObject
+@interface ZNNetwork : NSObject
 
 @property (strong, nonatomic) NSMutableArray *eventList;
+@property (strong, nonatomic) NSMutableArray *placeList;
+@property (strong, nonatomic) NSDictionary *placeDictionary;
+
 @property AFHTTPClient *httpClient;
 
-+ (ZNEventList *)me;
++ (ZNNetwork *)me;
 - (void)requestJSONWithPath:(NSString *)path success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+- (void)requestPlaceWithID:(NSInteger)placeID withSuccess:(void (^)(NSString *))success failure:(void (^)(NSError *))failure;
 - (void)requestEventListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
+- (void)requestPlaceListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
 
 @end
