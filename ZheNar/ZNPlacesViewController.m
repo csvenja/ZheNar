@@ -14,10 +14,8 @@
 
 @implementation ZNPlacesViewController
 
-- (void)viewDidLoad
+- (void)configure
 {
-    [super viewDidLoad];
-    
     [[ZNNetwork me] requestPlaceListWithSuccess:^(NSArray *events) {
         self.events = events;
     } failure:^(NSError *error) {

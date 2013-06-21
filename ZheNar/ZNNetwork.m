@@ -9,6 +9,8 @@
 #import "ZNNetwork.h"
 
 NSString * const baseURL = @"http://localhost";
+NSString * const eventListURL = @"/ZheNar/event/test.json?1";
+NSString * const placeListURL = @"/ZheNar/place/test.json?1";
 
 @implementation ZNNetwork
 
@@ -43,20 +45,44 @@ NSString * const baseURL = @"http://localhost";
     [operation start];
 }
 
-- (void)requestPlaceWithID:(NSInteger)placeID withSuccess:(void (^)(NSString *))success failure:(void (^)(NSError *))failure
+/* add searched object to dictionary or not? */
+- (void)requestPlaceWithID:(NSString *)placeID success:(void (^)(ZNPlace *))success failure:(void (^)(NSError *))failure
 {
-    if (self.placeDictionary == nil) {
-        [self requestJSONWithPath:@"/ZheNar/place/test.json" success:^(id JSON) {
-            NSString *placeIDKey = [NSString stringWithFormat:@"%d", placeID];
-            success(JSON[placeIDKey]);
-        } failure:failure];
+    ZNPlace *place;
+    if (self.placeDictionary) {
+        place = self.placeDictionary[placeID];
+        if (place) {
+            success(place);
+        }
+        else {
+            place = [[ZNPlace alloc] init];
+            [self requestJSONWithPath:placeListURL success:^(id JSON) {
+                id item = JSON[placeID];
+                place.name = item[@"name"];
+                //place.position = CGPointMake(item[@"longtitude"], item[@"latitude"]);
+                place.type = item[@"type"];
+                place.description = item[@"description"];
+                [self.placeDictionary setObject:place forKey:placeID];
+                success(place);
+            } failure:failure];
+        }
     }
     else {
-        
+        place = [[ZNPlace alloc] init];
+        [self requestJSONWithPath:placeListURL success:^(id JSON) {
+            id item = JSON[placeID];
+            place.name = item[@"name"];
+            //place.position = CGPointMake(item[@"longtitude"], item[@"latitude"]);
+            place.type = item[@"type"];
+            place.description = item[@"description"];
+            self.placeDictionary = [[NSMutableDictionary alloc] init];
+            [self.placeDictionary setObject:place forKey:placeID];
+            success(place);
+        } failure:failure];
     }
 }
 
-- (NSDate *)dateWithJSONString:(NSString*)JSONDate
+- (NSDate *)dateWithJSONString:(NSString *)JSONDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[NSLocale systemLocale]];
@@ -67,7 +93,7 @@ NSString * const baseURL = @"http://localhost";
 
 - (void)requestEventListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
 {
-    [self requestJSONWithPath:@"/ZheNar/event/test.json?miao" success:^(id JSON) {
+    [self requestJSONWithPath:eventListURL success:^(id JSON) {
         self.eventList = [[NSMutableArray alloc] init];
         for (id item in JSON) {
             ZNEvent *event = [[ZNEvent alloc] init];
@@ -82,7 +108,9 @@ NSString * const baseURL = @"http://localhost";
             event.startTime = [self dateWithJSONString:item[@"start_time"]];
             event.endTime = [self dateWithJSONString:item[@"end_time"]];
             event.place = [[ZNPlace alloc] init];
-            event.place.name = [item[@"place_id"] description];
+            [self requestPlaceWithID:[item[@"place_id"] description] success:^(ZNPlace *requestedPlace) {
+                event.place = requestedPlace;
+            } failure:failure];
             event.detailedPlace = item[@"address"];
             
             event.followerCount = [item[@"follower_count"] integerValue];
@@ -94,26 +122,21 @@ NSString * const baseURL = @"http://localhost";
 
 - (void)requestPlaceListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure
 {
-    /*[self requestJSONWithPath:@"/ZheNar/place/test.json" success:^(id JSON) {
-        self.eventList = [[NSMutableArray alloc] init];
-        for (id item in JSON) {
-            ZNEvent *event = [[ZNEvent alloc] init];
-            event.name = item[@"name"];
-            event.type = [[ZNEventType alloc] init];
-            event.type.name = [NSString stringWithFormat:@"%@", item[@"type_id"]];
-            event.organization = item[@"organization"];
-            event.host = [[ZNUser alloc] init];
-            event.host.name = item[@"host"];
-            event.description = item[@"description"];
-            event.startTime = item[@"start_time"];
-            event.endTime = item[@"end_time"];
-            event.place.name = [NSString stringWithFormat:@"%@", item[@"place_id"]];
-            event.detailedPlace = item[@"address"];
-            event.followerCount = [item[@"follower_count"] integerValue];
-            [self.eventList addObject:event];
+    [self requestJSONWithPath:placeListURL success:^(id JSON) {
+        self.placeList = [[NSMutableArray alloc] init];
+        NSArray *keys = [JSON allKeys];
+        for (NSString *key in keys) {
+            id item = JSON[key];
+            ZNPlace *place = [[ZNPlace alloc] init];
+            place.name = item[@"name"];
+            place.type = [[ZNPlaceType alloc] init];
+            place.type.name = [item[@"type"] description];
+            //place.position = CGPointMake(item[@"longtitude"], item[@"latitude"]);
+            [self.placeList addObject:place];
+            [self.placeDictionary setObject:place forKey:key];
         }
-        success(self.eventList);
-    } failure:failure];*/
+        success(self.placeList);
+    } failure:failure];
 }
 
 @end

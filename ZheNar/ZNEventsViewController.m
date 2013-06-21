@@ -32,6 +32,11 @@
 {
     [super viewDidLoad];
     
+    [self configure];
+}
+
+- (void)configure
+{
     [[ZNNetwork me] requestEventListWithSuccess:^(NSArray *events) {
         self.events = events;
     } failure:^(NSError *error) {
