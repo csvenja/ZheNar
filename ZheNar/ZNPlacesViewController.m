@@ -23,7 +23,6 @@
     }];
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[UITableViewCell class]]) {
@@ -36,5 +35,9 @@
     }
 }
 
+- (NSString *)titleForRow:(NSUInteger)row
+{
+    return [self.events[row] title];
+}
 
 @end

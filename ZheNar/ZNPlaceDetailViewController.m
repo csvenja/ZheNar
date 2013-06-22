@@ -23,7 +23,7 @@
 {
     [super viewWillAppear:animated];
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.place.position, 500, 500);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.place.coordinate, 500, 500);
     [self.mapView setRegion:region animated:NO];
 }
 

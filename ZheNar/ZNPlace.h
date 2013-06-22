@@ -10,11 +10,11 @@
 #import <MapKit/MapKit.h>
 #import "ZNPlaceType.h"
 
-@interface ZNPlace : NSObject
+@interface ZNPlace : NSObject <MKAnnotation>
 
-@property (strong, nonatomic) NSString *name;
-@property (nonatomic) CLLocationCoordinate2D position;
+@property (strong, nonatomic) NSString *title;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (strong, nonatomic) ZNPlaceType *type;
-@property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) NSString *subtitle;
 
 @end

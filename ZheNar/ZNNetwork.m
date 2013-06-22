@@ -51,33 +51,19 @@ NSString * const kPlaceListURL = @"/api/place/";
 - (void)requestPlaceWithID:(NSString *)placeID success:(void (^)(ZNPlace *))success failure:(void (^)(NSError *))failure
 {
     ZNPlace *place;
-    if (self.placeDictionary) {
-        place = self.placeDictionary[placeID];
-        if (place) {
-            success(place);
-        }
-        else {
-            place = [[ZNPlace alloc] init];
-            [self requestJSONWithPath:kPlaceListURL success:^(id JSON) {
-                id item = JSON[placeID];
-                place.name = item[@"name"];
-                place.position = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);
-                place.type = item[@"type"];
-                place.description = item[@"description"];
-                [self.placeDictionary setObject:place forKey:placeID];
-                success(place);
-            } failure:failure];
-        }
+    
+    place = self.placeDictionary[placeID];
+    if (place) {
+        success(place);
     }
     else {
         place = [[ZNPlace alloc] init];
         [self requestJSONWithPath:kPlaceListURL success:^(id JSON) {
             id item = JSON[placeID];
-            place.name = item[@"name"];
-            place.position = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);
+            place.title = item[@"name"];
+            place.coordinate = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);
             place.type = item[@"type"];
-            place.description = item[@"description"];
-            self.placeDictionary = [[NSMutableDictionary alloc] init];
+            place.subtitle = item[@"description"];
             [self.placeDictionary setObject:place forKey:placeID];
             success(place);
         } failure:failure];
@@ -130,10 +116,10 @@ NSString * const kPlaceListURL = @"/api/place/";
         for (NSString *key in keys) {
             id item = JSON[key];
             ZNPlace *place = [[ZNPlace alloc] init];
-            place.name = item[@"name"];
+            place.title = item[@"name"];
             place.type = [[ZNPlaceType alloc] init];
             place.type.name = [item[@"type"] description];
-            place.position = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);
+            place.coordinate = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);
             [self.placeList addObject:place];
             [self.placeDictionary setObject:place forKey:key];
         }
