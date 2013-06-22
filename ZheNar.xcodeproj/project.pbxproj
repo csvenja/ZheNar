@@ -32,6 +32,8 @@
 		D42E55B0174BCEC70070A864 /* ZheNarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D42E55AF174BCEC70070A864 /* ZheNarTests.m */; };
 		D456554A17670ACC004BE2D6 /* ZNLatestEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D456554917670ACC004BE2D6 /* ZNLatestEventsViewController.m */; };
 		D45BC1CC1771CCFC003C6168 /* ZNNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = D45BC1CB1771CCFC003C6168 /* ZNNetwork.m */; };
+		D45BC1CF17740626003C6168 /* ZNPlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45BC1CE17740625003C6168 /* ZNPlaceDetailViewController.m */; };
+		D45BC1D317759919003C6168 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45BC1D217759919003C6168 /* CoreLocation.framework */; };
 		D476F67A174DF5C0000A3ADD /* ZNPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F679174DF5C0000A3ADD /* ZNPlace.m */; };
 		D476F67D174DFB4F000A3ADD /* ZNEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67C174DFB4F000A3ADD /* ZNEvent.m */; };
 		D476F680174E06D7000A3ADD /* ZNPlaceType.m in Sources */ = {isa = PBXBuildFile; fileRef = D476F67F174E06D7000A3ADD /* ZNPlaceType.m */; };
@@ -86,6 +88,9 @@
 		D456554917670ACC004BE2D6 /* ZNLatestEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNLatestEventsViewController.m; sourceTree = "<group>"; };
 		D45BC1CA1771CCFC003C6168 /* ZNNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNNetwork.h; sourceTree = "<group>"; };
 		D45BC1CB1771CCFC003C6168 /* ZNNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNNetwork.m; sourceTree = "<group>"; };
+		D45BC1CD17740625003C6168 /* ZNPlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNPlaceDetailViewController.h; sourceTree = "<group>"; };
+		D45BC1CE17740625003C6168 /* ZNPlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNPlaceDetailViewController.m; sourceTree = "<group>"; };
+		D45BC1D217759919003C6168 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D476F678174DF5C0000A3ADD /* ZNPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNPlace.h; sourceTree = "<group>"; };
 		D476F679174DF5C0000A3ADD /* ZNPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNPlace.m; sourceTree = "<group>"; };
 		D476F67B174DFB4F000A3ADD /* ZNEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEvent.h; sourceTree = "<group>"; };
@@ -114,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45BC1D317759919003C6168 /* CoreLocation.framework in Frameworks */,
 				D476F685174E30E6000A3ADD /* MapKit.framework in Frameworks */,
 				D42E5571174BCEC70070A864 /* UIKit.framework in Frameworks */,
 				D42E5573174BCEC70070A864 /* Foundation.framework in Frameworks */,
@@ -182,6 +188,8 @@
 				D4968BB517642A6B009AB804 /* ZNEventDetailViewController.m */,
 				D456554817670ACC004BE2D6 /* ZNLatestEventsViewController.h */,
 				D456554917670ACC004BE2D6 /* ZNLatestEventsViewController.m */,
+				D45BC1CD17740625003C6168 /* ZNPlaceDetailViewController.h */,
+				D45BC1CE17740625003C6168 /* ZNPlaceDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 		D42E556F174BCEC70070A864 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D45BC1D217759919003C6168 /* CoreLocation.framework */,
 				D476F684174E30E6000A3ADD /* MapKit.framework */,
 				D42E5570174BCEC70070A864 /* UIKit.framework */,
 				D42E5572174BCEC70070A864 /* Foundation.framework */,
@@ -434,6 +443,7 @@
 				D4968BBF17646722009AB804 /* ZNPlacesViewController.m in Sources */,
 				D456554A17670ACC004BE2D6 /* ZNLatestEventsViewController.m in Sources */,
 				D45BC1CC1771CCFC003C6168 /* ZNNetwork.m in Sources */,
+				D45BC1CF17740626003C6168 /* ZNPlaceDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

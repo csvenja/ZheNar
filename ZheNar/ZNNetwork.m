@@ -8,9 +8,12 @@
 
 #import "ZNNetwork.h"
 
-NSString * const baseURL = @"http://localhost";
-NSString * const eventListURL = @"/ZheNar/event/test.json?1";
-NSString * const placeListURL = @"/ZheNar/place/test.json?1";
+NSString * const kBaseURL = @"http://10.71.10.71:8000/";
+//NSString * const kBaseURL = @"http://localhost/";
+NSString * const kEventListURL = @"/api/event/";
+NSString * const kPlaceListURL = @"/api/place/";
+//NSString * const kEventListURL = @"/ZheNar/event/test.json";
+//NSString * const kPlaceListURL = @"/ZheNar/place/test.json?2";
 
 @implementation ZNNetwork
 
@@ -27,7 +30,7 @@ NSString * const placeListURL = @"/ZheNar/place/test.json?1";
 {
     self = [super init];
     if (self) {
-        self.httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
+        self.httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
         [self.httpClient setParameterEncoding:AFJSONParameterEncoding];
     }
     return self;
@@ -45,7 +48,6 @@ NSString * const placeListURL = @"/ZheNar/place/test.json?1";
     [operation start];
 }
 
-/* add searched object to dictionary or not? */
 - (void)requestPlaceWithID:(NSString *)placeID success:(void (^)(ZNPlace *))success failure:(void (^)(NSError *))failure
 {
     ZNPlace *place;
@@ -56,10 +58,10 @@ NSString * const placeListURL = @"/ZheNar/place/test.json?1";
         }
         else {
             place = [[ZNPlace alloc] init];
-            [self requestJSONWithPath:placeListURL success:^(id JSON) {
+            [self requestJSONWithPath:kPlaceListURL success:^(id JSON) {
                 id item = JSON[placeID];
                 place.name = item[@"name"];
-                //place.position = CGPointMake(item[@"longtitude"], item[@"latitude"]);
+                place.position = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);
                 place.type = item[@"type"];
                 place.description = item[@"description"];
                 [self.placeDictionary setObject:place forKey:placeID];
@@ -69,10 +71,10 @@ NSString * const placeListURL = @"/ZheNar/place/test.json?1";
     }
     else {
         place = [[ZNPlace alloc] init];
-        [self requestJSONWithPath:placeListURL success:^(id JSON) {
+        [self requestJSONWithPath:kPlaceListURL success:^(id JSON) {
             id item = JSON[placeID];
             place.name = item[@"name"];
-            //place.position = CGPointMake(item[@"longtitude"], item[@"latitude"]);
+            place.position = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);
             place.type = item[@"type"];
             place.description = item[@"description"];
             self.placeDictionary = [[NSMutableDictionary alloc] init];
@@ -93,7 +95,7 @@ NSString * const placeListURL = @"/ZheNar/place/test.json?1";
 
 - (void)requestEventListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
 {
-    [self requestJSONWithPath:eventListURL success:^(id JSON) {
+    [self requestJSONWithPath:kEventListURL success:^(id JSON) {
         self.eventList = [[NSMutableArray alloc] init];
         for (id item in JSON) {
             ZNEvent *event = [[ZNEvent alloc] init];
@@ -122,7 +124,7 @@ NSString * const placeListURL = @"/ZheNar/place/test.json?1";
 
 - (void)requestPlaceListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure
 {
-    [self requestJSONWithPath:placeListURL success:^(id JSON) {
+    [self requestJSONWithPath:kPlaceListURL success:^(id JSON) {
         self.placeList = [[NSMutableArray alloc] init];
         NSArray *keys = [JSON allKeys];
         for (NSString *key in keys) {
@@ -131,7 +133,7 @@ NSString * const placeListURL = @"/ZheNar/place/test.json?1";
             place.name = item[@"name"];
             place.type = [[ZNPlaceType alloc] init];
             place.type.name = [item[@"type"] description];
-            //place.position = CGPointMake(item[@"longtitude"], item[@"latitude"]);
+            place.position = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);
             [self.placeList addObject:place];
             [self.placeDictionary setObject:place forKey:key];
         }

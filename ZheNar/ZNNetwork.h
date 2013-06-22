@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 #import "ZNEvent.h"

@@ -11,10 +11,11 @@
 #import "ZNEventType.h"
 #import "ZNUser.h"
 #import "ZNPlace.h"
+#import "ZNPlaceDetailViewController.h"
 
 @interface ZNEventDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) ZNEvent *event;
+@property (weak, nonatomic) ZNEvent *event;
 
 @property (weak, nonatomic) IBOutlet UILabel *type;
 @property (weak, nonatomic) IBOutlet UILabel *organization;

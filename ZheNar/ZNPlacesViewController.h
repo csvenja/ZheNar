@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ZNEventsViewController.h"
+#import "ZNPlaceDetailViewController.h"
 
 @interface ZNPlacesViewController : ZNEventsViewController
 
