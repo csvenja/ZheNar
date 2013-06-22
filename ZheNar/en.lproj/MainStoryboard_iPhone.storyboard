@@ -8,16 +8,38 @@
         <scene sceneID="11">
             <objects>
                 <viewController title="Map" id="2" customClass="ZNMapViewController" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="nGA-Ly-8H1">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                    <view key="view" contentMode="scaleToFill" id="UpR-l6-JDm">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <connections>
-                            <outlet property="delegate" destination="2" id="KBA-B7-8uj"/>
-                        </connections>
-                    </mapView>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IpH-Z2-t4f">
+                                <items>
+                                    <navigationItem title="Zhe Nar" id="atL-x3-342">
+                                        <barButtonItem key="rightBarButtonItem" title="Sign In" id="kqM-IE-4AB"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZMR-1R-yUR">
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="H5R-NP-VRR"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IpH-Z2-t4f" firstAttribute="top" secondItem="UpR-l6-JDm" secondAttribute="top" type="default" id="6OX-kr-hLl"/>
+                            <constraint firstItem="ZMR-1R-yUR" firstAttribute="leading" secondItem="UpR-l6-JDm" secondAttribute="leading" type="default" id="N0z-MB-ksz"/>
+                            <constraint firstItem="IpH-Z2-t4f" firstAttribute="leading" secondItem="UpR-l6-JDm" secondAttribute="leading" type="default" id="N1u-cX-W7W"/>
+                            <constraint firstItem="ZMR-1R-yUR" firstAttribute="bottom" secondItem="UpR-l6-JDm" secondAttribute="bottom" type="default" id="Tsu-UL-NiR"/>
+                            <constraint firstItem="ZMR-1R-yUR" firstAttribute="top" secondItem="IpH-Z2-t4f" secondAttribute="bottom" type="default" id="UCj-P5-2Vk"/>
+                            <constraint firstItem="ZMR-1R-yUR" firstAttribute="trailing" secondItem="UpR-l6-JDm" secondAttribute="trailing" type="default" id="X5Z-P2-uQG"/>
+                            <constraint firstItem="IpH-Z2-t4f" firstAttribute="trailing" secondItem="UpR-l6-JDm" secondAttribute="trailing" type="default" id="pNJ-EU-4C7"/>
+                        </constraints>
+                    </view>
                     <tabBarItem key="tabBarItem" title="Map" image="103-map.png" id="7"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="mapView" destination="nGA-Ly-8H1" id="aOr-VX-ePM"/>
+                        <outlet property="mapView" destination="ZMR-1R-yUR" id="Cga-FR-eeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -29,7 +51,7 @@
             <objects>
                 <viewController title="Places" id="3" customClass="ZNPlacesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nUT-0v-PIl">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -73,7 +95,7 @@
             <objects>
                 <viewController id="Kbg-Ms-0gX" customClass="ZNPlaceDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="juF-64-oWm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vys-vk-FRI">
@@ -120,7 +142,7 @@
             <objects>
                 <viewController title="Events" id="4Ez-SL-Buw" customClass="ZNEventsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nr7-u1-DFq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uji-zt-3Pe">
@@ -183,7 +205,7 @@
             <objects>
                 <tableViewController id="7oq-ki-NmM" customClass="ZNEventDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VpQ-tc-Rqv">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -535,7 +557,7 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="0VP-Dq-VTk"/>
