@@ -117,6 +117,7 @@ NSString * const kPlaceListURL = @"/api/place/";
             id item = JSON[key];
             ZNPlace *place = [[ZNPlace alloc] init];
             place.title = item[@"name"];
+            place.subtitle = item[@"description"];
             place.type = [[ZNPlaceType alloc] init];
             place.type.name = [item[@"type"] description];
             place.coordinate = CLLocationCoordinate2DMake([item[@"latitude"] doubleValue], [item[@"longitude"] doubleValue]);

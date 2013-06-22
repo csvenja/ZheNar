@@ -14,25 +14,31 @@
 
 @implementation ZNMapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    
+    [[ZNNetwork me] requestPlaceListWithSuccess:^(NSArray *places) {
+        self.places = places;
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([self.places[2] coordinate], 1500, 1500);
+        [self.mapView setRegion:region animated:NO];
+        [self.mapView addAnnotations:self.places];
+    } failure:^(NSError *error) {
+        ;
+    }];
 }
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
+{
+    [self.mapView selectAnnotation:self.places[2] animated:YES];
+}
+
 
 @end

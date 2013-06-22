@@ -25,6 +25,12 @@
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.place.coordinate, 500, 500);
     [self.mapView setRegion:region animated:NO];
+    [self.mapView addAnnotation:self.place];
+}
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
+{
+    [self.mapView selectAnnotation:self.place animated:YES];
 }
 
 @end
