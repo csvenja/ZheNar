@@ -18,13 +18,6 @@
 {
     [super viewDidLoad];
     
-
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
     [[ZNNetwork me] requestPlaceListWithSuccess:^(NSArray *places) {
         self.places = places;
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([self.places[2] coordinate], 1500, 1500);
@@ -33,6 +26,11 @@
     } failure:^(NSError *error) {
         ;
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView

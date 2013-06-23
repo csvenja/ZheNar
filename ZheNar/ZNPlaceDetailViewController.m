@@ -33,4 +33,9 @@
     [self.mapView selectAnnotation:self.place animated:YES];
 }
 
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
+{
+    [self mapViewDidFinishLoadingMap:mapView];
+}
+
 @end
