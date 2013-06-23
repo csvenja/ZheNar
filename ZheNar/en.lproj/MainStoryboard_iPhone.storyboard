@@ -770,16 +770,16 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="3dG-Wf-B5l"/>
                     <connections>
-                        <outlet property="description" destination="uK2-85-S1c" id="ChL-3t-zJk"/>
-                        <outlet property="detailedPlace" destination="6Ox-IY-B60" id="AQD-FP-y19"/>
-                        <outlet property="endTime" destination="rjb-KD-Pyb" id="YSR-On-WdF"/>
-                        <outlet property="follower" destination="9ow-UL-BMn" id="Wiz-Qc-o1d"/>
-                        <outlet property="host" destination="Q8O-zs-gv6" id="ihd-gE-V0p"/>
-                        <outlet property="organization" destination="e30-yC-NEX" id="4Y2-Bw-Fqw"/>
-                        <outlet property="place" destination="OVm-CT-of6" id="khX-PF-3HZ"/>
-                        <outlet property="placeCell" destination="ek7-5n-e40" id="iGd-Mt-3EL"/>
-                        <outlet property="startTime" destination="9ju-qu-YHW" id="ple-gm-9Ei"/>
-                        <outlet property="type" destination="E86-O4-rYU" id="oaL-RA-GwU"/>
+                        <outlet property="description" destination="uK2-85-S1c" id="ms5-dP-Xda"/>
+                        <outlet property="detailedPlace" destination="6Ox-IY-B60" id="rRA-pb-ghB"/>
+                        <outlet property="endTime" destination="rjb-KD-Pyb" id="A1x-N9-ytu"/>
+                        <outlet property="follower" destination="9ow-UL-BMn" id="Kj5-ph-hte"/>
+                        <outlet property="host" destination="Q8O-zs-gv6" id="Dwa-fA-s0z"/>
+                        <outlet property="organization" destination="e30-yC-NEX" id="eZy-tX-Ga5"/>
+                        <outlet property="place" destination="OVm-CT-of6" id="NBn-bn-NdN"/>
+                        <outlet property="placeCell" destination="ek7-5n-e40" id="tzF-Aw-zH2"/>
+                        <outlet property="startTime" destination="9ju-qu-YHW" id="9pT-7C-UZI"/>
+                        <outlet property="type" destination="E86-O4-rYU" id="RJC-Ph-jB6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSs-AH-OYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
