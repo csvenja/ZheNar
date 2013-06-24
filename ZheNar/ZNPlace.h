@@ -12,9 +12,9 @@
 
 @interface ZNPlace : NSObject <MKAnnotation>
 
-@property (strong, nonatomic) NSString *title;
+@property (nonatomic, copy) NSString *title;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (strong, nonatomic) ZNPlaceType *type;
-@property (strong, nonatomic) NSString *subtitle;
+@property (nonatomic, copy) NSString *subtitle;
 
 @end

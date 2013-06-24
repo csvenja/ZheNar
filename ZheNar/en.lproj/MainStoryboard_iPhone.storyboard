@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="1464" y="-703"/>
         </scene>
-        <!--Table View Controller - Sign In-->
+        <!--Sign In View Controller - Sign In-->
         <scene sceneID="pUe-Un-xqA">
             <objects>
-                <tableViewController id="sG9-Sh-Fp8" sceneMemberID="viewController">
+                <tableViewController id="sG9-Sh-Fp8" customClass="ZNSignInViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="APK-Qz-yKy">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="2507" y="-703"/>
         </scene>
-        <!--Table View Controller - Sign Up-->
+        <!--Sign Up View Controller - Sign Up-->
         <scene sceneID="VJ5-jk-LDW">
             <objects>
-                <tableViewController id="Lob-3d-1EW" sceneMemberID="viewController">
+                <tableViewController id="Lob-3d-1EW" customClass="ZNSignUpViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="r4t-su-8Ih">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -833,50 +833,6 @@
         <image name="103-map.png" width="26" height="21"/>
         <image name="83-calendar.png" width="23" height="25"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ZNEventDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNEventDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="detailedPlace" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="endTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="follower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="host" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="organization" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="place" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="placeCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="startTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="type" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ZNEventsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNEventsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ZNMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNMapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="ZNPlaceDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNPlaceDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="ZNPlacesViewController" superclassName="ZNEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNPlacesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

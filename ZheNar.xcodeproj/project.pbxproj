@@ -100,6 +100,10 @@
 		D476F681174E0828000A3ADD /* ZNEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEventType.h; sourceTree = "<group>"; };
 		D476F682174E0828000A3ADD /* ZNEventType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNEventType.m; sourceTree = "<group>"; };
 		D476F684174E30E6000A3ADD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D479F5231778AB0F00E39114 /* ZNSignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNSignInViewController.h; sourceTree = "<group>"; };
+		D479F5241778AB0F00E39114 /* ZNSignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNSignInViewController.m; sourceTree = "<group>"; };
+		D479F5251778AB2500E39114 /* ZNSignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNSignUpViewController.h; sourceTree = "<group>"; };
+		D479F5261778AB2500E39114 /* ZNSignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNSignUpViewController.m; sourceTree = "<group>"; };
 		D4968BB417642A6B009AB804 /* ZNEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEventDetailViewController.h; sourceTree = "<group>"; };
 		D4968BB517642A6B009AB804 /* ZNEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNEventDetailViewController.m; sourceTree = "<group>"; };
 		D4968BB717642AD2009AB804 /* ZNEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNEventsViewController.h; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			children = (
 				D4968BBA17646714009AB804 /* ZNMapViewController.h */,
 				D4968BBB17646714009AB804 /* ZNMapViewController.m */,
+				D479F5231778AB0F00E39114 /* ZNSignInViewController.h */,
+				D479F5241778AB0F00E39114 /* ZNSignInViewController.m */,
 				D4968BBD17646722009AB804 /* ZNPlacesViewController.h */,
 				D4968BBE17646722009AB804 /* ZNPlacesViewController.m */,
 				D4968BB717642AD2009AB804 /* ZNEventsViewController.h */,
@@ -190,6 +196,8 @@
 				D456554917670ACC004BE2D6 /* ZNLatestEventsViewController.m */,
 				D45BC1CD17740625003C6168 /* ZNPlaceDetailViewController.h */,
 				D45BC1CE17740625003C6168 /* ZNPlaceDetailViewController.m */,
+				D479F5251778AB2500E39114 /* ZNSignUpViewController.h */,
+				D479F5261778AB2500E39114 /* ZNSignUpViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
