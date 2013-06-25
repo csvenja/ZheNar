@@ -13,6 +13,8 @@
 		1A3CBB00174C7DD50012A9FF /* 83-calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAFA174C7DD50012A9FF /* 83-calendar@2x.png */; };
 		1A3CBB01174C7DD50012A9FF /* 103-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAFB174C7DD50012A9FF /* 103-map.png */; };
 		1A3CBB02174C7DD50012A9FF /* 103-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A3CBAFC174C7DD50012A9FF /* 103-map@2x.png */; };
+		1ACE014817796BE000245DB6 /* ZNSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D479F5241778AB0F00E39114 /* ZNSignInViewController.m */; };
+		1ACE014917796BE300245DB6 /* ZNSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D479F5261778AB2500E39114 /* ZNSignUpViewController.m */; };
 		B5F418AA056046E3B9AD30C4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E573213D493340B9A803E862 /* libPods.a */; };
 		D42E5571174BCEC70070A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E5570174BCEC70070A864 /* UIKit.framework */; };
 		D42E5573174BCEC70070A864 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42E5572174BCEC70070A864 /* Foundation.framework */; };
@@ -438,10 +440,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ACE014917796BE300245DB6 /* ZNSignUpViewController.m in Sources */,
 				D42E557D174BCEC70070A864 /* main.m in Sources */,
 				D42E5581174BCEC70070A864 /* ZNAppDelegate.m in Sources */,
 				D476F67A174DF5C0000A3ADD /* ZNPlace.m in Sources */,
 				D476F67D174DFB4F000A3ADD /* ZNEvent.m in Sources */,
+				1ACE014817796BE000245DB6 /* ZNSignInViewController.m in Sources */,
 				D476F680174E06D7000A3ADD /* ZNPlaceType.m in Sources */,
 				D476F683174E0828000A3ADD /* ZNEventType.m in Sources */,
 				D4C4E0E0175865E20003516C /* ZNUser.m in Sources */,
