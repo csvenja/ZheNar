@@ -13,6 +13,8 @@
 @interface ZNMapViewController : UIViewController <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 @property (strong, nonatomic) NSArray *places;
+@property (strong, nonatomic) NSString *segueToPerform;
 
 @end

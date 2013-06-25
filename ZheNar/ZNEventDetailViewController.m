@@ -18,7 +18,7 @@
 {
     self.type.text = self.event.type.name;
     self.organization.text = self.event.organization;
-    self.host.text = self.event.host.name;
+    self.host.text = self.event.host.username;
     self.description.text = self.event.description;
     
     self.place.text = self.event.place.title;

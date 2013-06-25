@@ -12,6 +12,8 @@ NSString * const kBaseURL = @"http://10.71.10.71:8000/";
 //NSString * const kBaseURL = @"http://localhost/";
 NSString * const kEventListURL = @"/api/event/";
 NSString * const kPlaceListURL = @"/api/place/";
+NSString * const kUserURL = @"/api/user/login/email/";
+NSString * const kUserRegURL = @"/api/user/reg/";
 //NSString * const kEventListURL = @"/ZheNar/event/test.json";
 //NSString * const kPlaceListURL = @"/ZheNar/place/test.json?2";
 
@@ -90,7 +92,7 @@ NSString * const kPlaceListURL = @"/api/place/";
             event.type.name = item[@"type"];
             event.organization = item[@"organization"];
             event.host = [[ZNUser alloc] init];
-            event.host.name = item[@"host"];
+            event.host.username = item[@"host"];
             event.description = item[@"description"];
             
             event.startTime = [self dateWithJSONString:item[@"start_time"]];
@@ -126,6 +128,51 @@ NSString * const kPlaceListURL = @"/api/place/";
         }
         success(self.placeList);
     } failure:failure];
+}
+
+- (void)requestUserWithEmail:(NSString *)email password:(NSString *)password success:(void (^)(ZNUser *))success failure:(void (^)(NSString *))failure
+{
+    NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"POST" path:kUserURL parameters:@{@"email":email, @"password":password}];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if (JSON[@"error"]) {
+            failure(JSON[@"error"]);
+        }
+        else {
+            ZNUser *user = [[ZNUser alloc] init];
+            user.ID = [JSON[@"id"] intValue];
+            user.username = JSON[@"username"];
+            user.email = JSON[@"email"];
+            user.gender = JSON[@"female"];
+            user.studentName = JSON[@"student_name"];
+            success(user);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Failed to get JSON: %@", [error userInfo]);
+        failure(@"网络连接错误。");
+    }];
+    [operation start];
+}
+
+- (void)registerWithEmail:(NSString *)email username:(NSString *)username password:(NSString *)password studentName:(NSString *)studentName success:(void (^)(ZNUser *))success failure:(void (^)(NSString *))failure
+{
+    NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"POST" path:kUserRegURL parameters:@{@"email":email, @"username":username, @"password":password, @"student_name":studentName}];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if (JSON[@"error"]) {
+            failure(JSON[@"error"]);
+        }
+        else {
+            ZNUser *user = [[ZNUser alloc] init];
+            user.ID = [JSON[@"id"] intValue];
+            user.username = username;
+            user.email = email;
+            user.studentName = studentName;
+            success(user);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Failed to get JSON: %@", [error userInfo]);
+        failure(@"网络连接错误。");
+    }];
+    [operation start];
 }
 
 @end

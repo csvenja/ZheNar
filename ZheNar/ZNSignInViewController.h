@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZNNetwork.h"
 
 @interface ZNSignInViewController : UITableViewController
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *email;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UITableViewCell *signIn;
+@property (weak, nonatomic) IBOutlet UITableViewCell *createNewAccount;
 
 @end

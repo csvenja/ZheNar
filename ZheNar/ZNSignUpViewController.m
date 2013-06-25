@@ -8,21 +8,44 @@
 
 #import "ZNSignUpViewController.h"
 
+NSInteger const kSignUpButton = 0;
+
 @interface ZNSignUpViewController ()
 
 @end
 
 @implementation ZNSignUpViewController
 
+- (IBAction)cancelClicked:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == kSignUpButton) {
+        self.email.text = @"";
+        self.username.text = @"";
+        self.studentName.text = @"";
+        self.password.text = @"";
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (theCellClicked == self.signUp) {
+        [[ZNNetwork me] registerWithEmail:self.email.text username:self.username.text password:self.password.text studentName:self.studentName.text success:^(ZNUser *user) {
+            [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
+            [[self navigationController] popViewControllerAnimated:YES];
+        } failure:^(NSString *error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }];
+    }
 }
 
 @end

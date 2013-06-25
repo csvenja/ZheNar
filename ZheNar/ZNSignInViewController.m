@@ -8,6 +8,8 @@
 
 #import "ZNSignInViewController.h"
 
+NSInteger const kSignInButton = 0;
+
 @interface ZNSignInViewController ()
 
 @end
@@ -17,18 +19,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == kSignInButton) {
+        self.password.text = @"";
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (theCellClicked == self.signIn) {
+        [[ZNNetwork me] requestUserWithEmail:self.email.text password:self.password.text success:^(ZNUser *user) {
+            [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
+            [[self navigationController] popViewControllerAnimated:YES];
+        } failure:^(NSString *error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }];
+    }
 }
 
 @end

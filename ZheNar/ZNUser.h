@@ -11,9 +11,9 @@
 @interface ZNUser : NSObject
 
 @property (nonatomic) NSInteger ID;
-@property (strong, nonatomic) NSString *studentID;
-@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *gender;
-@property (strong, nonatomic) NSDate *register_time;
+@property (strong, nonatomic) NSString *studentName;
 
 @end
