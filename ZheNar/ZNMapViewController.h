@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "ZNNetwork.h"
 
-@interface ZNMapViewController : UIViewController
+@interface ZNMapViewController : UIViewController <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) NSArray *places;

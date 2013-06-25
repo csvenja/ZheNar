@@ -184,8 +184,6 @@
 			children = (
 				D4968BBA17646714009AB804 /* ZNMapViewController.h */,
 				D4968BBB17646714009AB804 /* ZNMapViewController.m */,
-				D479F5231778AB0F00E39114 /* ZNSignInViewController.h */,
-				D479F5241778AB0F00E39114 /* ZNSignInViewController.m */,
 				D4968BBD17646722009AB804 /* ZNPlacesViewController.h */,
 				D4968BBE17646722009AB804 /* ZNPlacesViewController.m */,
 				D4968BB717642AD2009AB804 /* ZNEventsViewController.h */,
@@ -196,6 +194,8 @@
 				D456554917670ACC004BE2D6 /* ZNLatestEventsViewController.m */,
 				D45BC1CD17740625003C6168 /* ZNPlaceDetailViewController.h */,
 				D45BC1CE17740625003C6168 /* ZNPlaceDetailViewController.m */,
+				D479F5231778AB0F00E39114 /* ZNSignInViewController.h */,
+				D479F5241778AB0F00E39114 /* ZNSignInViewController.m */,
 				D479F5251778AB2500E39114 /* ZNSignUpViewController.h */,
 				D479F5261778AB2500E39114 /* ZNSignUpViewController.m */,
 			);

@@ -13,7 +13,7 @@
 #import "ZNPlace.h"
 #import "ZNPlaceDetailViewController.h"
 
-@interface ZNEventDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ZNEventDetailViewController : UITableViewController
 
 @property (weak, nonatomic) ZNEvent *event;
 
