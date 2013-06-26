@@ -134,6 +134,9 @@ NSString * const kUserRegURL = @"/api/user/reg/";
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSMutableDictionary *user = [[NSMutableDictionary alloc] init];
         [user setDictionary:JSON];
+        if (user[@"student_name"] == [NSNull null]) {
+            user[@"student_name"] = [[NSString alloc] init];
+        }
         success(user);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"Failed to get JSON: %@", [error userInfo]);
@@ -153,6 +156,9 @@ NSString * const kUserRegURL = @"/api/user/reg/";
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSMutableDictionary *user = [[NSMutableDictionary alloc] init];
         [user setDictionary:JSON];
+        if (user[@"student_name"] == nil) {
+            [user[@"student_name"] string];
+        }
         success(user);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"Failed to get JSON: %@", [error userInfo]);
