@@ -7,9 +7,9 @@
 //
 
 #import "ZNNetwork.h"
+#import "ISO8601DateFormatter.h"
 
 NSString * const kBaseURL = @"http://10.71.10.71:8000/";
-//NSString * const kBaseURL = @"http://localhost/";
 NSString * const kEventListURL = @"/api/event/";
 NSString * const kPlaceListURL = @"/api/place/";
 NSString * const kUserURL = @"/api/user/login/email/";
@@ -70,15 +70,6 @@ NSString * const kUserRegURL = @"/api/user/reg/";
     }
 }
 
-- (NSDate *)dateWithJSONString:(NSString *)JSONDate
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:[NSLocale systemLocale]];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm'Z'"];
-    NSDate *date = [dateFormatter dateFromString:JSONDate];
-    return date;
-}
-
 - (void)requestEventListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
 {
     [self requestJSONWithPath:kEventListURL success:^(id JSON) {
@@ -93,8 +84,9 @@ NSString * const kUserRegURL = @"/api/user/reg/";
             event.host.username = item[@"host"];
             event.description = item[@"description"];
             
-            event.startTime = [self dateWithJSONString:item[@"start_time"]];
-            event.endTime = [self dateWithJSONString:item[@"end_time"]];
+            ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+            event.startTime = [formatter dateFromString:item[@"start_time"]];
+            event.endTime = [formatter dateFromString:item[@"end_time"]];
             event.place = [[ZNPlace alloc] init];
             [self requestPlaceWithID:[item[@"place_id"] description] success:^(ZNPlace *requestedPlace) {
                 event.place = requestedPlace;
