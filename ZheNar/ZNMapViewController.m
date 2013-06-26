@@ -8,6 +8,9 @@
 
 #import "ZNMapViewController.h"
 
+NSInteger const kZNMapRegionDistance = 750;
+CLLocationCoordinate2D const kZNMapCenter = {30.3045022222222,120.08633333333};
+
 @interface ZNMapViewController () <UIAlertViewDelegate>
 
 @end
@@ -17,20 +20,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     [[ZNNetwork me] requestPlaceListWithSuccess:^(NSArray *places) {
         self.places = places;
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([self.places[2] coordinate], 1500, 1500);
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(kZNMapCenter, kZNMapRegionDistance, kZNMapRegionDistance);
         [self.mapView setRegion:region animated:NO];
+        [self.mapView removeAnnotations:self.mapView.annotations];
         [self.mapView addAnnotations:self.places];
     } failure:^(NSError *error) {
         ;
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id)annotation
 {
-    [super viewWillAppear:animated];
+    MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annotation"];
+    annotationView.pinColor = MKPinAnnotationColorRed;
+    annotationView.animatesDrop = YES;
+    return annotationView;
 }
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
