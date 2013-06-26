@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 @property (strong, nonatomic) NSArray *places;
 @property (strong, nonatomic) NSString *segueToPerform;
+@property (strong, nonatomic) ZNPlace *userPlace;
 
 @end

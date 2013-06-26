@@ -20,6 +20,8 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3045022222222,120.08633333333};
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.mapView.showsUserLocation = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -37,10 +39,24 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3045022222222,120.08633333333};
     }];
 }
 
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    [self.mapView removeAnnotation:self.userPlace];
+    self.userPlace = [[ZNPlace alloc] init];
+    self.userPlace.coordinate = self.mapView.userLocation.coordinate;
+    [self.mapView addAnnotation:self.userPlace];
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id)annotation
 {
     MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annotation"];
-    annotationView.pinColor = MKPinAnnotationColorRed;
+    if (annotation == self.userPlace) {
+        annotationView.pinColor = MKPinAnnotationColorGreen;
+    }
+    else {
+        annotationView.pinColor = MKPinAnnotationColorRed;
+    }
+    annotationView.canShowCallout = YES;
     annotationView.animatesDrop = YES;
     return annotationView;
 }
