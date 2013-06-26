@@ -36,9 +36,9 @@
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
     [self.mapView selectAnnotation:self.places[2] animated:YES];
-    ZNUser *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    NSDictionary *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
     if (user) {
-        self.barButton.title = user.username;
+        self.barButton.title = user[@"username"];
         self.segueToPerform = @"User Info";
     }
     else {

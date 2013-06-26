@@ -128,16 +128,12 @@ NSString * const kUserRegURL = @"/api/user/reg/";
     } failure:failure];
 }
 
-- (void)requestUserWithEmail:(NSString *)email password:(NSString *)password success:(void (^)(ZNUser *))success failure:(void (^)(NSString *))failure
+- (void)requestUserWithEmail:(NSString *)email password:(NSString *)password success:(void (^)(NSDictionary *))success failure:(void (^)(NSString *))failure
 {
     NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"POST" path:kUserURL parameters:@{@"email":email, @"password":password}];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        ZNUser *user = [[ZNUser alloc] init];
-        user.ID = [JSON[@"id"] intValue];
-        user.username = JSON[@"username"];
-        user.email = JSON[@"email"];
-        user.gender = JSON[@"female"];
-        user.studentName = JSON[@"student_name"];
+        NSMutableDictionary *user = [[NSMutableDictionary alloc] init];
+        [user setDictionary:JSON];
         success(user);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"Failed to get JSON: %@", [error userInfo]);
@@ -151,15 +147,12 @@ NSString * const kUserRegURL = @"/api/user/reg/";
     [operation start];
 }
 
-- (void)registerWithEmail:(NSString *)email username:(NSString *)username password:(NSString *)password studentName:(NSString *)studentName success:(void (^)(ZNUser *))success failure:(void (^)(NSString *))failure
+- (void)registerWithEmail:(NSString *)email username:(NSString *)username password:(NSString *)password studentName:(NSString *)studentName success:(void (^)(NSDictionary *))success failure:(void (^)(NSString *))failure
 {
     NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"POST" path:kUserRegURL parameters:@{@"email":email, @"username":username, @"password":password, @"student_name":studentName}];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            ZNUser *user = [[ZNUser alloc] init];
-        user.ID = [JSON[@"id"] intValue];
-        user.username = username;
-        user.email = email;
-        user.studentName = studentName;
+        NSMutableDictionary *user = [[NSMutableDictionary alloc] init];
+        [user setDictionary:JSON];
         success(user);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"Failed to get JSON: %@", [error userInfo]);

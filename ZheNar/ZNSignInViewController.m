@@ -31,12 +31,15 @@ NSInteger const kSignInButton = 0;
 {
     UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
     if (theCellClicked == self.signIn) {
-        [[ZNNetwork me] requestUserWithEmail:self.email.text password:self.password.text success:^(ZNUser *user) {
+//        [SVProgressHUD showWithStatus:@"Connecting" maskType:SVProgressHUDMaskTypeBlack];
+        [[ZNNetwork me] requestUserWithEmail:self.email.text password:self.password.text success:^(NSDictionary *user) {
             [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
             [[self navigationController] popViewControllerAnimated:YES];
+//            [SVProgressHUD dismiss];
         } failure:^(NSString *error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
+//            [SVProgressHUD dismiss];
         }];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
