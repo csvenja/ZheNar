@@ -240,9 +240,7 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Sign In" id="2K0-w8-PKu">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Aoi-nB-6Wk"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Sign In" id="2K0-w8-PKu"/>
                     <connections>
                         <outlet property="createNewAccount" destination="jNt-rp-OC2" id="ePo-bA-kHF"/>
                         <outlet property="email" destination="YwS-Ht-TZ8" id="tYu-Yd-x1h"/>
