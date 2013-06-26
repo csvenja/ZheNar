@@ -7,6 +7,7 @@
 //
 
 #import "ZNSignUpViewController.h"
+#import "SVProgressHUD.h"
 
 NSInteger const kSignUpButton = 0;
 
@@ -42,12 +43,18 @@ NSInteger const kSignUpButton = 0;
         [self.username resignFirstResponder];
         [self.studentName resignFirstResponder];
         [self.password resignFirstResponder];
+        [SVProgressHUD showWithStatus:@"Connecting" maskType:SVProgressHUDMaskTypeBlack];
         [[ZNNetwork me] registerWithEmail:self.email.text username:self.username.text password:self.password.text studentName:self.studentName.text success:^(NSDictionary *user) {
             [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
-            [[self navigationController] popViewControllerAnimated:YES];
+            //[[self navigationController] popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:^{
+                [[self navigationController] popToRootViewControllerAnimated:YES];
+            }];
+            [SVProgressHUD dismiss];
         } failure:^(NSString *error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
+            [SVProgressHUD dismiss];
         }];
     }
 }
