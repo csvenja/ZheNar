@@ -45,6 +45,7 @@
 		D4968BB917642AD2009AB804 /* ZNEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4968BB817642AD2009AB804 /* ZNEventsViewController.m */; };
 		D4968BBC17646714009AB804 /* ZNMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4968BBB17646714009AB804 /* ZNMapViewController.m */; };
 		D4968BBF17646722009AB804 /* ZNPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4968BBE17646722009AB804 /* ZNPlacesViewController.m */; };
+		D4B2F09E177B0ED900090BDC /* ZNUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F09D177B0ED900090BDC /* ZNUserInfoViewController.m */; };
 		D4C4E0E0175865E20003516C /* ZNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C4E0DF175865E20003516C /* ZNUser.m */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,8 @@
 		D4968BBB17646714009AB804 /* ZNMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNMapViewController.m; sourceTree = "<group>"; };
 		D4968BBD17646722009AB804 /* ZNPlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNPlacesViewController.h; sourceTree = "<group>"; };
 		D4968BBE17646722009AB804 /* ZNPlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNPlacesViewController.m; sourceTree = "<group>"; };
+		D4B2F09C177B0ED900090BDC /* ZNUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNUserInfoViewController.h; sourceTree = "<group>"; };
+		D4B2F09D177B0ED900090BDC /* ZNUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNUserInfoViewController.m; sourceTree = "<group>"; };
 		D4C4E0DE175865E20003516C /* ZNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNUser.h; sourceTree = "<group>"; };
 		D4C4E0DF175865E20003516C /* ZNUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNUser.m; sourceTree = "<group>"; };
 		D5DC557F780C4DB1AB7F84BD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -200,6 +203,8 @@
 				D479F5241778AB0F00E39114 /* ZNSignInViewController.m */,
 				D479F5251778AB2500E39114 /* ZNSignUpViewController.h */,
 				D479F5261778AB2500E39114 /* ZNSignUpViewController.m */,
+				D4B2F09C177B0ED900090BDC /* ZNUserInfoViewController.h */,
+				D4B2F09D177B0ED900090BDC /* ZNUserInfoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				D456554A17670ACC004BE2D6 /* ZNLatestEventsViewController.m in Sources */,
 				D45BC1CC1771CCFC003C6168 /* ZNNetwork.m in Sources */,
 				D45BC1CF17740626003C6168 /* ZNPlaceDetailViewController.m in Sources */,
+				D4B2F09E177B0ED900090BDC /* ZNUserInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
