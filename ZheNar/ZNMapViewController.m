@@ -9,7 +9,7 @@
 #import "ZNMapViewController.h"
 
 NSInteger const kZNMapRegionDistance = 750;
-CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222,120.08633333333};
+CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
 
 @interface ZNMapViewController () <UIAlertViewDelegate>
 

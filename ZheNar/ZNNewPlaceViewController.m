@@ -8,7 +8,9 @@
 
 #import "ZNNewPlaceViewController.h"
 
-@interface ZNNewPlaceViewController ()
+@interface ZNNewPlaceViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property NSArray *categories;
 
 @end
 
@@ -17,10 +19,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.categories = @[@"Study", @"Food", @"Entertainment", @"Living"];
 }
 
 - (IBAction)cancelClicked:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.categories.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return self.categories[row];
 }
 
 @end
