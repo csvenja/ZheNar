@@ -27,7 +27,7 @@ NSInteger const kSignInButton = 0;
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
     if (theCellClicked == self.signIn) {
@@ -39,6 +39,7 @@ NSInteger const kSignInButton = 0;
             [alert show];
         }];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
