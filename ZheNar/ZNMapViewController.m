@@ -7,6 +7,7 @@
 //
 
 #import "ZNMapViewController.h"
+#import "ZNSignInViewController.h"
 
 NSInteger const kZNMapRegionDistance = 750;
 CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
@@ -20,6 +21,12 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.mapView.showsUserLocation = YES;
+}
+
+- (void)updateButton
+{
     NSDictionary *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
     if (user) {
         self.barButton.title = user[@"username"];
@@ -27,13 +34,13 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
     else {
         self.barButton.title = @"Sign In";
     }
-
-    self.mapView.showsUserLocation = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self updateButton];
     
     [[ZNNetwork me] requestPlaceListWithSuccess:^(NSArray *places) {
         self.places = places;
@@ -71,6 +78,17 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
     [self.mapView selectAnnotation:self.places[2] animated:YES];
+}
+
+- (IBAction)signInOrOut:(UIBarButtonItem *)sender
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user"]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user"];
+        [self updateButton];
+    }
+    else {
+        [self performSegueWithIdentifier:@"Sign In" sender:sender];
+    }
 }
 
 

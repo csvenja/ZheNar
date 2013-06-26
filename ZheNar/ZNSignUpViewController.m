@@ -38,6 +38,10 @@ NSInteger const kSignUpButton = 0;
 {
     UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
     if (theCellClicked == self.signUp) {
+        [self.email resignFirstResponder];
+        [self.username resignFirstResponder];
+        [self.studentName resignFirstResponder];
+        [self.password resignFirstResponder];
         [[ZNNetwork me] registerWithEmail:self.email.text username:self.username.text password:self.password.text studentName:self.studentName.text success:^(NSDictionary *user) {
             [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
             [[self navigationController] popViewControllerAnimated:YES];

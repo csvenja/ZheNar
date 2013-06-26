@@ -32,8 +32,8 @@ NSInteger const kSignInButton = 0;
 {
     UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
     if (theCellClicked == self.signIn) {
-        [self.password resignFirstResponder];
         [self.email resignFirstResponder];
+        [self.password resignFirstResponder];
         [SVProgressHUD showWithStatus:@"Connecting" maskType:SVProgressHUDMaskTypeBlack];
         [[ZNNetwork me] requestUserWithEmail:self.email.text password:self.password.text success:^(NSDictionary *user) {
             [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
