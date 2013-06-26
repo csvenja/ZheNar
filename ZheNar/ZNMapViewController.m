@@ -20,7 +20,14 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    NSDictionary *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    if (user) {
+        self.barButton.title = user[@"username"];
+    }
+    else {
+        self.barButton.title = @"Sign In";
+    }
+
     self.mapView.showsUserLocation = YES;
 }
 
@@ -64,15 +71,6 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
     [self.mapView selectAnnotation:self.places[2] animated:YES];
-    NSDictionary *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
-    if (user) {
-        self.barButton.title = user[@"username"];
-        self.segueToPerform = @"User Info";
-    }
-    else {
-        self.barButton.title = @"Sign In";
-        self.segueToPerform = @"Sign In";
-    }
 }
 
 
