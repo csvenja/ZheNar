@@ -1265,12 +1265,15 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1/1/1970 00:00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGM-Kx-ttQ">
-                                                    <rect key="frame" x="114" y="7" width="186" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jan 1, 1970, 00:00 AM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGM-Kx-ttQ">
+                                                    <rect key="frame" x="85" y="7" width="215" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="jrk-rt-Kqw" id="xwt-46-4zO"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1290,12 +1293,15 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="12/20/2012 00:00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F7h-7A-KxR">
-                                                    <rect key="frame" x="114" y="7" width="186" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dec 20, 2012, 00:00 AM" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F7h-7A-KxR">
+                                                    <rect key="frame" x="85" y="7" width="215" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="jrk-rt-Kqw" id="ryW-0W-7Eh"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1335,6 +1341,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="endTimeField" destination="F7h-7A-KxR" id="bhs-9z-IWs"/>
+                        <outlet property="startTimeField" destination="TGM-Kx-ttQ" id="Z4F-Nm-Kxo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e3-YM-vaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1440,13 +1450,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNNewEventViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="endTimeField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="startTimeField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="ZNNewPlaceViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNNewPlaceViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
-            </relationships>
         </class>
         <class className="ZNPlaceDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNPlaceDetailViewController.h"/>
@@ -1473,7 +1482,6 @@
         <class className="ZNSignUpViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNSignUpViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="email" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="signUp" candidateClass="UITableViewCell"/>
