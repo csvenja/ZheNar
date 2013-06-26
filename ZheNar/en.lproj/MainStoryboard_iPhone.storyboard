@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1464" y="-703"/>
+            <point key="canvasLocation" x="1412" y="-661"/>
         </scene>
         <!--User Info View Controller - User Info-->
         <scene sceneID="moB-aA-obr">
@@ -118,7 +118,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poN-MO-1nS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="-1494"/>
+            <point key="canvasLocation" x="1895" y="-1380"/>
         </scene>
         <!--Sign In View Controller - Sign In-->
         <scene sceneID="pUe-Un-xqA">
@@ -253,7 +253,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCB-jc-Bx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="-703"/>
+            <point key="canvasLocation" x="1895" y="-661"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4np-Hs-bDD">
@@ -269,7 +269,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mmy-nM-Shz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2507" y="-703"/>
+            <point key="canvasLocation" x="2337" y="-661"/>
         </scene>
         <!--Sign Up View Controller - Sign Up-->
         <scene sceneID="VJ5-jk-LDW">
@@ -431,7 +431,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WG9-FC-mMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3063" y="-703"/>
+            <point key="canvasLocation" x="2771" y="-661"/>
         </scene>
         <!--Navigation Controller - Map-->
         <scene sceneID="eA6-bf-U8x">
@@ -448,7 +448,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpH-x4-vws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="-703"/>
+            <point key="canvasLocation" x="990" y="-661"/>
         </scene>
         <!--Places View Controller - Places-->
         <scene sceneID="13">
@@ -487,14 +487,20 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Places" id="Yuf-Jk-kp3"/>
+                    <navigationItem key="navigationItem" title="Places" id="Yuf-Jk-kp3">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="xW8-Px-PFS">
+                            <connections>
+                                <segue destination="2g9-PV-FHM" kind="modal" id="h9f-VD-4lk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="nUT-0v-PIl" id="rSs-Nh-ngk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1472" y="13"/>
+            <point key="canvasLocation" x="1412" y="13"/>
         </scene>
         <!--Place Detail View Controller-->
         <scene sceneID="Iye-UK-1Dx">
@@ -527,7 +533,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39E-3X-cZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2507" y="13"/>
+            <point key="canvasLocation" x="1895" y="250"/>
+        </scene>
+        <!--New Place View Controller - New Place-->
+        <scene sceneID="Xq8-Bb-TiV">
+            <objects>
+                <tableViewController id="kOm-FZ-dYU" customClass="ZNNewPlaceViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mTJ-3g-J2l">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xd1-SO-wNW">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="New Place" id="9T1-5m-e3I">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="qDl-wf-bPz">
+                            <connections>
+                                <action selector="cancelClicked:" destination="kOm-FZ-dYU" id="kxT-QZ-Klj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUp-Fe-CdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2771" y="8"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cdy-c5-7Vv">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="2g9-PV-FHM" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qql-ep-iAL">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kOm-FZ-dYU" kind="relationship" relationship="rootViewController" id="ktR-ov-mEl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eho-iU-oc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2337" y="8"/>
         </scene>
         <!--Navigation Controller - Places-->
         <scene sceneID="h4t-Dz-7O7">
@@ -596,7 +651,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Events" id="xuZ-el-Six"/>
+                    <navigationItem key="navigationItem" title="Events" id="xuZ-el-Six">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="ivb-X9-iQe">
+                            <connections>
+                                <segue destination="g8b-EC-rDx" kind="modal" id="CRH-hp-7Pj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="Kdb-8Z-NUA" id="8vX-oO-edO"/>
                         <outlet property="tableView" destination="uji-zt-3Pe" id="Qdp-QS-USo"/>
@@ -612,7 +673,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1472" y="714"/>
+            <point key="canvasLocation" x="1412" y="700"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="kGS-PH-YaK">
@@ -884,7 +945,56 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSs-AH-OYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="714"/>
+            <point key="canvasLocation" x="1895" y="956"/>
+        </scene>
+        <!--New Event View Controller - New Event-->
+        <scene sceneID="aey-Sl-sia">
+            <objects>
+                <tableViewController id="jrk-rt-Kqw" customClass="ZNNewEventViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Pr8-fU-k5w">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mmK-lH-uA8">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="New Event" id="DLz-Ck-LQk">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="o9m-OY-CZh">
+                            <connections>
+                                <action selector="cancelClicked:" destination="jrk-rt-Kqw" id="VxJ-5n-WE1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4e3-YM-vaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2771" y="700"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tdT-x7-EoC">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="g8b-EC-rDx" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bkd-gK-8bD">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jrk-rt-Kqw" kind="relationship" relationship="rootViewController" id="Ke8-Wy-ROk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQL-pz-FNT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2337" y="700"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -925,7 +1035,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvq-eE-ggz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="714"/>
+            <point key="canvasLocation" x="990" y="700"/>
         </scene>
     </scenes>
     <resources>
@@ -963,6 +1073,15 @@
             <relationships>
                 <relationship kind="outlet" name="barButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="ZNNewEventViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNNewEventViewController.h"/>
+        </class>
+        <class className="ZNNewPlaceViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNNewPlaceViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="ZNPlaceDetailViewController" superclassName="UIViewController">
@@ -1007,6 +1126,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BVY-fU-r47"/>
+        <segue reference="rSK-ox-CZl"/>
     </inferredMetricsTieBreakers>
 </document>
