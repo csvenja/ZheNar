@@ -8,8 +8,15 @@
 
 #import "ZNNewEventViewController.h"
 #import "ZNNetwork.h"
+#import "SVProgressHUD.h"
+#import "ISO8601DateFormatter.h"
 
 @interface ZNNewEventViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionField;
+@property (weak, nonatomic) IBOutlet UITextField *organizationField;
+@property (weak, nonatomic) IBOutlet UITextField *addressField;
 
 @property (weak, nonatomic) IBOutlet UITextField *startTimeField;
 @property (weak, nonatomic) IBOutlet UITextField *endTimeField;
@@ -23,6 +30,8 @@
 
 @property (strong, nonatomic) NSArray *categories;
 @property (strong, nonatomic) NSArray *places;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *creatEventCell;
 
 @end
 
@@ -112,6 +121,38 @@
     else if (pickerView == self.placePicker) {
         self.placeField.text = ((ZNPlace *)self.places[row]).title;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (theCellClicked == self.creatEventCell) {
+        [SVProgressHUD showWithStatus:@"Connecting" maskType:SVProgressHUDMaskTypeClear];
+        
+        ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+        formatter.includeTime = YES;
+        NSDictionary *dictionary = @{
+                                     @"name": self.nameField.text,
+                                     @"description": self.descriptionField.text,
+                                     @"organization": self.organizationField.text,
+                                     @"start_time": [formatter stringFromDate:self.startDatePicker.date],
+                                     @"end_time": [formatter stringFromDate:self.endDatePicker.date],
+#warning FIXME
+                                     @"place_id": @"28",
+                                     @"event_type_id": self.categories[[self.categoryPicker selectedRowInComponent:0]][@"id"],
+                                     @"address": self.addressField.text
+                                     };
+        
+        [[ZNNetwork me] createEventWithDictionary:dictionary success:^(void) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [SVProgressHUD dismiss];
+        } failure:^(NSString *error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [SVProgressHUD dismiss];
+        }];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

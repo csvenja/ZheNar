@@ -31,6 +31,9 @@
                             failure:(void (^)(NSError *))failure;
 - (void)requestEventTypeWithSuccess:(void (^)(NSArray *))success
                             failure:(void (^)(NSError *))failure;
+- (void)createEventWithDictionary:(NSDictionary *)dictionary
+                          success:(void (^)())success
+                          failure:(void (^)(NSString *))failure;
 
 - (void)requestPlaceWithID:(NSString *)placeID
                    success:(void (^)(ZNPlace *))success

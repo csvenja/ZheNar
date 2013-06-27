@@ -12,6 +12,7 @@
 NSString * const kBaseURL = @"http://10.71.10.71:8000/";
 NSString * const kEventListURL = @"/api/event/";
 NSString * const kEventTypeURL = @"/api/event/type/";
+NSString * const kEventCreateURL = @"/api/event/create/";
 NSString * const kPlaceListURL = @"/api/place/";
 NSString * const kUserURL = @"/api/user/login/email/";
 NSString * const kUserRegURL = @"/api/user/reg/";
@@ -160,6 +161,25 @@ NSString * const kUserRegURL = @"/api/user/reg/";
             [user[@"student_name"] string];
         }
         success(user);
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Failed to get JSON: %@", [error userInfo]);
+        if (JSON[@"error"]) {
+            failure(JSON[@"error"]);
+        }
+        else {
+            failure(@"Network error.");
+        }
+    }];
+    [operation start];
+}
+
+- (void)createEventWithDictionary:(NSDictionary *)dictionary
+                          success:(void (^)())success
+                          failure:(void (^)(NSString *))failure
+{
+    NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"POST" path:kEventCreateURL parameters:dictionary];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        success();
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"Failed to get JSON: %@", [error userInfo]);
         if (JSON[@"error"]) {
