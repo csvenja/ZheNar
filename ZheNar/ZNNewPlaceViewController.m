@@ -10,7 +10,7 @@
 
 @interface ZNNewPlaceViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property NSArray *categories;
+@property (strong, nonatomic) NSArray *categories;
 
 @end
 

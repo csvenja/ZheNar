@@ -1342,7 +1342,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoryField" destination="ePz-jI-JXe" id="eY5-ZY-9EM"/>
                         <outlet property="endTimeField" destination="F7h-7A-KxR" id="bhs-9z-IWs"/>
+                        <outlet property="placeField" destination="LvO-BT-mVb" id="LfB-79-7lz"/>
                         <outlet property="startTimeField" destination="TGM-Kx-ttQ" id="Z4F-Nm-Kxo"/>
                     </connections>
                 </tableViewController>
@@ -1450,7 +1452,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNNewEventViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="categoryField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="endTimeField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="placeField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="startTimeField" candidateClass="UITextField"/>
             </relationships>
         </class>
@@ -1482,6 +1486,7 @@
         <class className="ZNSignUpViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNSignUpViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="email" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="signUp" candidateClass="UITableViewCell"/>
