@@ -35,7 +35,7 @@ NSInteger const kSignUpButton = 0;
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
     if (theCellClicked == self.signUp) {
@@ -53,6 +53,7 @@ NSInteger const kSignUpButton = 0;
             [SVProgressHUD dismiss];
         } failure:^(NSString *error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
             [alert show];
             [SVProgressHUD dismiss];
         }];
