@@ -139,7 +139,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@zhenar.com" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YwS-Ht-TZ8">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@zhenar.com" minimumFontSize="13" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YwS-Ht-TZ8">
                                                     <rect key="frame" x="114" y="7" width="186" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1443,7 +1443,6 @@
         <class className="ZNMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNMapViewController.h"/>
             <relationships>
-                <relationship kind="action" name="signInOrOut:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="barButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
@@ -1451,7 +1450,6 @@
         <class className="ZNNewEventViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNNewEventViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="categoryField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="endTimeField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="placeField" candidateClass="UITextField"/>
@@ -1460,6 +1458,9 @@
         </class>
         <class className="ZNNewPlaceViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNNewPlaceViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="ZNPlaceDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNPlaceDetailViewController.h"/>
@@ -1486,7 +1487,6 @@
         <class className="ZNSignUpViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZNSignUpViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancelClicked:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="email" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="signUp" candidateClass="UITableViewCell"/>

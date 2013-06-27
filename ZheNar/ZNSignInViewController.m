@@ -34,7 +34,7 @@ NSInteger const kSignInButton = 0;
     if (theCellClicked == self.signIn) {
         [self.email resignFirstResponder];
         [self.password resignFirstResponder];
-        [SVProgressHUD showWithStatus:@"Connecting" maskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showWithStatus:@"Connecting" maskType:SVProgressHUDMaskTypeClear];
         [[ZNNetwork me] requestUserWithEmail:self.email.text password:self.password.text success:^(NSDictionary *user) {
             [[NSUserDefaults standardUserDefaults] setObject:user forKey:@"user"];
             [[self navigationController] popViewControllerAnimated:YES];

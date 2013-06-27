@@ -9,8 +9,8 @@
 #import "ZNMapViewController.h"
 #import "ZNSignInViewController.h"
 
-NSInteger const kZNMapRegionDistance = 750;
-CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
+NSInteger const kZNMapRegionDistance = 900;
+CLLocationCoordinate2D const kZNMapCenter = {30.3025, 120.0863};
 
 @interface ZNMapViewController () <UIAlertViewDelegate>
 
@@ -70,6 +70,9 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3015022222222, 120.08633333333};
     else {
         annotationView.pinColor = MKPinAnnotationColorRed;
     }
+#ifdef PRESENTATION
+    annotationView.pinColor = [self.places indexOfObject:annotation] % 3;
+#endif
     annotationView.canShowCallout = YES;
     annotationView.animatesDrop = YES;
     return annotationView;
