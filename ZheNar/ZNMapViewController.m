@@ -23,6 +23,9 @@ CLLocationCoordinate2D const kZNMapCenter = {30.3025, 120.0863};
     [super viewDidLoad];
     
     self.mapView.showsUserLocation = YES;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(kZNMapCenter, kZNMapRegionDistance, kZNMapRegionDistance);
+    [self.mapView setRegion:region animated:NO];
 }
 
 - (void)updateButton

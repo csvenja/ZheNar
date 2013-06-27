@@ -23,11 +23,30 @@
 @property AFHTTPClient *httpClient;
 
 + (ZNNetwork *)me;
-- (void)requestJSONWithPath:(NSString *)path success:(void (^)(id))success failure:(void (^)(NSError *))failure;
-- (void)requestPlaceWithID:(NSString *)placeID success:(void (^)(ZNPlace *))success failure:(void (^)(NSError *))failure;
-- (void)requestEventListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
-- (void)requestPlaceListWithSuccess:(void (^)(NSMutableArray *))success failure:(void (^)(NSError *))failure;
-- (void)requestUserWithEmail:(NSString *)email password:(NSString *)password success:(void (^)(NSDictionary *))success failure:(void (^)(NSString *))failure;
-- (void)registerWithEmail:(NSString *)email username:(NSString *)username password:(NSString *)password studentName:(NSString *)studentName success:(void (^)(NSDictionary *))success failure:(void (^)(NSString *))failure;
+- (void)requestJSONWithPath:(NSString *)path
+                    success:(void (^)(id))success
+                    failure:(void (^)(NSError *))failure;
+
+- (void)requestEventListWithSuccess:(void (^)(NSMutableArray *))success
+                            failure:(void (^)(NSError *))failure;
+- (void)requestEventTypeWithSuccess:(void (^)(NSArray *))success
+                            failure:(void (^)(NSError *))failure;
+
+- (void)requestPlaceWithID:(NSString *)placeID
+                   success:(void (^)(ZNPlace *))success
+                   failure:(void (^)(NSError *))failure;
+- (void)requestPlaceListWithSuccess:(void (^)(NSMutableArray *))success
+                            failure:(void (^)(NSError *))failure;
+
+- (void)requestUserWithEmail:(NSString *)email
+                    password:(NSString *)password
+                     success:(void (^)(NSDictionary *))success
+                     failure:(void (^)(NSString *))failure;
+- (void)registerWithEmail:(NSString *)email
+                 username:(NSString *)username
+                 password:(NSString *)password
+              studentName:(NSString *)studentName
+                  success:(void (^)(NSDictionary *))success
+                  failure:(void (^)(NSString *))failure;
 
 @end

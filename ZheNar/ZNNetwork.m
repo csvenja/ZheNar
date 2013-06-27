@@ -11,6 +11,7 @@
 
 NSString * const kBaseURL = @"http://10.71.10.71:8000/";
 NSString * const kEventListURL = @"/api/event/";
+NSString * const kEventTypeURL = @"/api/event/type/";
 NSString * const kPlaceListURL = @"/api/place/";
 NSString * const kUserURL = @"/api/user/login/email/";
 NSString * const kUserRegURL = @"/api/user/reg/";
@@ -97,6 +98,13 @@ NSString * const kUserRegURL = @"/api/user/reg/";
             [self.eventList addObject:event];
         }
         success(self.eventList);
+    } failure:failure];
+}
+
+- (void)requestEventTypeWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    [self requestJSONWithPath:kEventTypeURL success:^(id JSON) {
+        success(JSON);
     } failure:failure];
 }
 

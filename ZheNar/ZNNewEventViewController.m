@@ -7,6 +7,7 @@
 //
 
 #import "ZNNewEventViewController.h"
+#import "ZNNetwork.h"
 
 @interface ZNNewEventViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UIScrollViewDelegate>
 
@@ -51,8 +52,14 @@
     self.placePicker.dataSource = self;
     self.placeField.inputView = self.placePicker;
     
-    self.categories = @[@"Study", @"Food", @"Entertainment", @"Living"];
-    self.places = @[@"meow", @"baa", @"moo", @"woo"];
+#warning FIXME
+    [[ZNNetwork me] requestEventTypeWithSuccess:^(NSArray *typeList) {
+        self.categories = typeList;
+    } failure:nil];
+
+    [[ZNNetwork me] requestPlaceListWithSuccess:^(NSArray *placeList) {
+        self.places = placeList;
+    } failure:nil];
 }
 
 - (IBAction)cancelClicked:(UIBarButtonItem *)sender {
@@ -89,10 +96,10 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if (pickerView == self.categoryPicker) {
-        return self.categories[row];
+        return self.categories[row][@"name"];
     }
     else if (pickerView == self.placePicker) {
-        return self.places[row];
+        return ((ZNPlace *)self.places[row]).title;
     }
     return nil;
 }
@@ -100,10 +107,10 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (pickerView == self.categoryPicker) {
-        self.categoryField.text = self.categories[row];
+        self.categoryField.text = self.categories[row][@"name"];
     }
     else if (pickerView == self.placePicker) {
-        self.placeField.text = self.places[row];
+        self.placeField.text = ((ZNPlace *)self.places[row]).title;
     }
 }
 
