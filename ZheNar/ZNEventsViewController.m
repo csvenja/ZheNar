@@ -31,8 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self configure];
 }
 
 - (void)configure
@@ -78,6 +76,7 @@
 {
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self configure];
     
     [super viewWillAppear:animated];
 }
