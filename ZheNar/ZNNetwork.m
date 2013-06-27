@@ -178,16 +178,12 @@ NSString * const kUserRegURL = @"/api/user/reg/";
                           failure:(void (^)(NSString *))failure
 {
     NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"POST" path:kEventCreateURL parameters:dictionary];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         success();
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"Failed to get JSON: %@", [error userInfo]);
-        if (JSON[@"error"]) {
-            failure(JSON[@"error"]);
-        }
-        else {
-            failure(@"Network error.");
-        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failed to request: %@", [error userInfo]);
+        failure(@"Network error.");
     }];
     [operation start];
 }
